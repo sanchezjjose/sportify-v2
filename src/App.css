@@ -1,0 +1,22 @@
+.App {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100px auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.App-header {
+  display: grid;
+  background-color: #fff;
+  width: auto;
+  height: 60px
+}
+
+.App-title {
+  color: #000;
+  margin-left: 13px;
+  margin-bottom: 9px;
+  font-size: 32px;
+}
