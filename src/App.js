@@ -10,11 +10,11 @@ class App extends Component {
         <nav className='App-navigation'>
           <div className='App-logo'>sportify</div>
           <div className='nav-items'>
-            <button class='nav-home'>
+            <button className='nav-home'>
               <img src={homeNavIcon} className="tab-icon" alt="logo" />
               <span className='nav-text'> home </span>
             </button>
-            <button class='nav-schedule'>
+            <button className='nav-schedule'>
               <img src={scheduleNavIcon} className="tab-icon" alt="logo" />
               <span className='nav-text'> schedule </span>
             </button>
