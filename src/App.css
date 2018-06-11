@@ -68,3 +68,15 @@
   font-weight: 300;
   font-style: normal;
 }
+
+.App .container {
+  display: grid;
+  justify-items: center;
+  margin: 26px auto 0 auto;
+}
+
+.line-divider {
+  height: 3px;
+  width: 366px;
+  background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
+}
