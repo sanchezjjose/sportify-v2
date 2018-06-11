@@ -1,22 +1,63 @@
 .App {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 60px 100px auto;
   font-family: 'Open Sans', sans-serif;
+}
+
+.App-navigation {
+  display: grid;
+  grid-template-columns: 50% 50%; 
+  background-color: #fff;
+  width: auto;
+}
+
+.App-navigation .nav-items {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+}
+
+.App-navigation button {
+  background: none;
+  border: 0;
+}
+
+.App-navigation .nav-items .nav-text {
+  color: #4A4A4A;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.App-navigation .nav-items .tab-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.App-logo {
+  height: 43px;
+  width: 131px;
+  color: #000;
+  margin-left: 13px;
+  margin-bottom: 9px;
+  margin-top: 8px;
+  font-size: 32px;
   font-weight: 800;
   font-style: normal;
+  text-align: center;
 }
 
 .App-header {
   display: grid;
-  background-color: #fff;
-  width: auto;
-  height: 60px
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
 }
 
-.App-title {
-  color: #000;
-  margin-left: 13px;
-  margin-bottom: 9px;
+.header-title {
+  color: #fff;
   font-size: 32px;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: normal;
 }

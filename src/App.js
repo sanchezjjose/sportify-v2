@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import homeNavIcon from './home-nav-icon.svg';
+import scheduleNavIcon from './schedule-nav-icon.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">sportify</h1>
+      <div className='App'>
+        <nav className='App-navigation'>
+          <div className='App-logo'>sportify</div>
+          <div className='nav-items'>
+            <button class='nav-home'>
+              <img src={homeNavIcon} className="tab-icon" alt="logo" />
+              <span className='nav-text'> home </span>
+            </button>
+            <button class='nav-schedule'>
+              <img src={scheduleNavIcon} className="tab-icon" alt="logo" />
+              <span className='nav-text'> schedule </span>
+            </button>
+          </div>
+        </nav>
+        <header className='App-header'>
+          <div className='header-title'>
+            Pickup Game
+          </div>
         </header>
       </div>
     );
