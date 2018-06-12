@@ -34,7 +34,11 @@ class App extends Component {
 
           {/* DetailsComponent */}
           <div className='content'>
-            <p>July 25th, 8:15 p.m.</p>
+            <div className='game-date'>July 25th, 8:15 p.m.</div>
+            <div className='game-location-name'>Murry Bergtraum High School</div>
+            <div className='game-location-address'>411 Pearl St, New York, NY 10038</div>
+            <button className='rsvp-button'>IN</button>
+            <button className='rsvp-button'>OUT</button>
           </div>
 
           {/* RsvpComponent */}
@@ -44,11 +48,18 @@ class App extends Component {
           {/* RosterComponent */}
           <div className='roster'>
             <div className='roster-title'>Roster</div>
-            <div className='roster-subtitle'>9 players confirmed</div>
-            <div className='roster-rsvp-in'>
-              Max Moise <br/>
-              Jose Sanchez
-            </div>
+            <div className='roster-subtitle'>9 player(s) confirmed</div>
+
+        	{/* foreach */}
+            <div className='roster-rsvp-in'>Max Moise</div>
+            <div className='roster-rsvp-in'>Jose Sanchez</div>
+            <div className='roster-rsvp-in'>Edwin</div>
+            <div className='roster-rsvp-in'>Chris</div>
+            <div className='roster-rsvp-in'>Fan Feng</div>
+            <div className='roster-rsvp-in'>Hao Tan</div>
+            <div className='roster-rsvp-in'>Ernest Lindain</div>
+            <div className='roster-rsvp-in'>Dave</div>
+            <div className='roster-rsvp-in'>William Lin</div>
           </div>
 
         </div>
