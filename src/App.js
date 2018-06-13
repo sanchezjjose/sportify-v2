@@ -4,6 +4,16 @@ import scheduleNavIcon from './schedule-nav-icon.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      players: require('./data/players.json'),
+      schedule: require('./data/schedule.json')
+    };
+  }
+
   render() {
     return (
       <div className='App'>
@@ -13,11 +23,11 @@ class App extends Component {
           <div className='App-logo'>sportify</div>
           <div className='nav-items'>
             <button className='nav-home'>
-              <img src={homeNavIcon} className="tab-icon" alt="logo" />
+              <img src={homeNavIcon} className="tab-icon" alt="home" />
               <span className='nav-text'> home </span>
             </button>
             <button className='nav-schedule'>
-              <img src={scheduleNavIcon} className="tab-icon" alt="logo" />
+              <img src={scheduleNavIcon} className="tab-icon" alt="schedule" />
               <span className='nav-text'> schedule </span>
             </button>
           </div>
@@ -34,9 +44,9 @@ class App extends Component {
 
           {/* DetailsComponent */}
           <div className='content'>
-            <div className='game-date'>July 25th, 8:15 p.m.</div>
-            <div className='game-location-name'>Murry Bergtraum High School</div>
-            <div className='game-location-address'>411 Pearl St, New York, NY 10038</div>
+            <div className='game-date'>{this.state.schedule[0].date}</div>
+            <div className='game-location-name'>{this.state.schedule[0].location}</div>
+            <div className='game-location-address'>{this.state.schedule[0].address}</div>
             <button className='rsvp-button'>IN</button>
             <button className='rsvp-button'>OUT</button>
           </div>
@@ -48,18 +58,11 @@ class App extends Component {
           {/* RosterComponent */}
           <div className='roster'>
             <div className='roster-title'>Roster</div>
-            <div className='roster-subtitle'>9 player(s) confirmed</div>
-
-        	{/* foreach */}
-            <div className='roster-rsvp-in'>Max Moise</div>
-            <div className='roster-rsvp-in'>Jose Sanchez</div>
-            <div className='roster-rsvp-in'>Edwin</div>
-            <div className='roster-rsvp-in'>Chris</div>
-            <div className='roster-rsvp-in'>Fan Feng</div>
-            <div className='roster-rsvp-in'>Hao Tan</div>
-            <div className='roster-rsvp-in'>Ernest Lindain</div>
-            <div className='roster-rsvp-in'>Dave</div>
-            <div className='roster-rsvp-in'>William Lin</div>
+            <div className='roster-subtitle'>{this.state.players.rsvpYes.length} player(s) confirmed</div>
+            
+            {this.state.players.rsvpYes.map (name => {
+              return <div key={name} className='roster-rsvp-in'>{name}</div>;
+            })}
           </div>
 
         </div>
