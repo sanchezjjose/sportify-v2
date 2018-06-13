@@ -14,6 +14,10 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log('componentDidMount() called.');
+  }
+
   render() {
     return (
       <div className='App'>
@@ -47,11 +51,11 @@ class App extends Component {
             <div className='game-date'>{this.state.schedule[0].date}</div>
             <div className='game-location-name'>{this.state.schedule[0].location}</div>
             <div className='game-location-address'>{this.state.schedule[0].address}</div>
+
+            {/* RsvpComponent */}
             <button className='rsvp-button'>IN</button>
             <button className='rsvp-button'>OUT</button>
           </div>
-
-          {/* RsvpComponent */}
 
           <div className='line-divider'></div>
 
@@ -64,9 +68,7 @@ class App extends Component {
               return <div key={name} className='roster-rsvp-in'>{name}</div>;
             })}
           </div>
-
         </div>
-
       </div>
     );
   }
