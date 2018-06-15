@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import homeNavIcon from './home-nav-icon.svg';
 import scheduleNavIcon from './schedule-nav-icon.svg';
 import './App.css';
@@ -20,17 +21,45 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'> 
-        <NavComponent />
-        <HeaderComponent title='Pickup Game' />
-        <div className='container'>
-          <DetailsComponent schedule={this.state.schedule[0]} />
-          <div className='line-divider'></div>
-          <RosterComponent players={this.state.players} />
-        </div>
-      </div>
+    	<Router>
+	      <div className='App'> 
+	        <NavComponent />
+	        <Route exact={true} path='/' render={() => (
+	        	<HomeComponent schedule={this.state.schedule} players={this.state.players} />
+	        )}/>
+	        <Route exact={true} path='/schedule' render={() => (
+	        	<ScheduleComponent schedule={this.state.schedule} />
+	        )}/>
+	      </div>
+	    </Router>
     );
   }
+}
+
+// TODO: Move below to separate files
+
+const HomeComponent = ({ schedule, players }) => {
+	return (
+		<div>
+			<HeaderComponent title='Pickup Game' />
+	  	<div className='container'>
+	      <DetailsComponent schedule={schedule[0]} />
+	      <div className='line-divider'></div>
+	      <RosterComponent players={players} />
+	    </div>
+	  </div>
+	);
+}
+
+const ScheduleComponent = ({ state }) => {
+	return (
+		<div>
+			<HeaderComponent title='Schedule' />
+	    <div className='container'>
+	      Under Construction...
+	    </div>
+    </div>
+	);
 }
 
 const NavComponent = () => {
@@ -39,12 +68,16 @@ const NavComponent = () => {
       <div className='App-logo'>sportify</div>
       <div className='nav-items'>
         <button className='nav-home'>
-          <img src={homeNavIcon} className="tab-icon" alt="home" />
-          <span className='nav-text'> home </span>
+        	<Link to={'/'}>
+	          <img src={homeNavIcon} className="tab-icon" alt="home" />
+	          <span className='nav-text'> home </span>
+	        </Link>
         </button>
         <button className='nav-schedule'>
-          <img src={scheduleNavIcon} className="tab-icon" alt="schedule" />
-          <span className='nav-text'> schedule </span>
+        	<Link to={'/schedule'}>
+	          <img src={scheduleNavIcon} className="tab-icon" alt="schedule" />
+	          <span className='nav-text'> schedule </span>
+	        </Link>
         </button>
       </div>
     </nav>
