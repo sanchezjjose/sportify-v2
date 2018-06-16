@@ -83,14 +83,15 @@
 
 .App .content {
   display: grid;
-  justify-items: center;
   text-align: center;
-  margin: 26px auto 26px auto;
+  justify-items: center;
+  margin-top: 26px;
+  margin-bottom: 26px;
 }
 
 .App .content .line-divider {
-  height: 3px;
-  width: 366px;
+  height: 2px;
+  width: 90%;
   background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
 }
 
@@ -157,4 +158,34 @@
   color: #4A4A4A;
   font-size: 14px;
   font-weight: 300;
+}
+
+/* Schedule.css */
+.Schedule {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+
+.Schedule .game-details {
+  padding-left: 30px;
+  text-align: left;
+  justify-self: left;
+  font-size: 16px;
+}
+
+.Schedule .game-date {
+  font-weight: 400;
+}
+
+.Schedule .game-location-name {
+  font-weight: 600;
+}
+
+.Schedule .game-location-address {
+  font-weight: 300;
+}
+
+.container .Schedule div.line-divider {
+  margin: 30px 0;
 }

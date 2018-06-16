@@ -51,12 +51,23 @@ const HomeComponent = ({ schedule, players }) => {
 	);
 }
 
-const ScheduleComponent = ({ state }) => {
+const ScheduleComponent = ({ schedule }) => {
 	return (
 		<div className='container'>
 			<HeaderComponent title='Schedule' />
 	    <div className='content'>
-	      Under Construction...
+        {schedule.map(game => {
+          return (
+            <div key={game.date} className='Schedule'>
+              <div className='game-details'>
+                <div className='game-date'>{game.date}</div>
+                <div className='game-location-name'>{game.location}</div>
+                <div className='game-location-address'>{game.address}</div>
+              </div>
+              <div className='line-divider'></div>
+            </div>
+          );
+        })}
 	    </div>
     </div>
 	);
@@ -100,7 +111,6 @@ const DetailsComponent = ({ schedule }) => {
 	    <div className='game-date'>{schedule.date}</div>
 	    <div className='game-location-name'>{schedule.location}</div>
 	    <div className='game-location-address'>{schedule.address}</div>
-
 	    <RsvpComponent textValue='IN' />
 	    <RsvpComponent textValue='OUT' />
 	  </div>
@@ -118,7 +128,6 @@ const RosterComponent = ({ players }) => {
 		<div className='Roster'>
       <div className='roster-title'>Roster</div>
       <div className='roster-subtitle'>{players.rsvpYes.length} player(s) confirmed</div>
-      
       {players.rsvpYes.map (name => {
         return <div key={name} className='roster-rsvp-in'>{name}</div>;
       })}
