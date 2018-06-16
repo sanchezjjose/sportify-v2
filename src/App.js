@@ -40,9 +40,9 @@ class App extends Component {
 
 const HomeComponent = ({ schedule, players }) => {
 	return (
-		<div>
+		<div class='container'>
 			<HeaderComponent title='Pickup Game' />
-	  	<div className='container'>
+	  	<div className='content'>
 	      <DetailsComponent schedule={schedule[0]} />
 	      <div className='line-divider'></div>
 	      <RosterComponent players={players} />
@@ -53,9 +53,9 @@ const HomeComponent = ({ schedule, players }) => {
 
 const ScheduleComponent = ({ state }) => {
 	return (
-		<div>
+		<div class='container'>
 			<HeaderComponent title='Schedule' />
-	    <div className='container'>
+	    <div className='content'>
 	      Under Construction...
 	    </div>
     </div>
@@ -96,7 +96,7 @@ const HeaderComponent = ({ title }) => {
 
 const DetailsComponent = ({ schedule }) => {
 	return (
-		<div className='content'>
+		<div className='Details'>
 	    <div className='game-date'>{schedule.date}</div>
 	    <div className='game-location-name'>{schedule.location}</div>
 	    <div className='game-location-address'>{schedule.address}</div>
@@ -115,7 +115,7 @@ const RsvpComponent = ({ textValue }) => {
 
 const RosterComponent = ({ players }) => {
 	return (
-		<div className='roster'>
+		<div className='Roster'>
       <div className='roster-title'>Roster</div>
       <div className='roster-subtitle'>{players.rsvpYes.length} player(s) confirmed</div>
       
