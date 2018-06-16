@@ -40,7 +40,7 @@ class App extends Component {
 
 const HomeComponent = ({ schedule, players }) => {
 	return (
-		<div class='container'>
+		<div className='container'>
 			<HeaderComponent title='Pickup Game' />
 	  	<div className='content'>
 	      <DetailsComponent schedule={schedule[0]} />
@@ -53,7 +53,7 @@ const HomeComponent = ({ schedule, players }) => {
 
 const ScheduleComponent = ({ state }) => {
 	return (
-		<div class='container'>
+		<div className='container'>
 			<HeaderComponent title='Schedule' />
 	    <div className='content'>
 	      Under Construction...
