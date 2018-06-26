@@ -1,12 +1,14 @@
 .App {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 60px auto;
+  grid-template-rows: 75px auto;
   font-family: 'Open Sans', sans-serif;
 }
 
 /* Navigation.css */
 .App-navigation {
+  display: grid;
+  align-items: center;
   background-color: #fff;
   width: auto;
 }
