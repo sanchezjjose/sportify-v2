@@ -111,8 +111,8 @@ const DetailsComponent = ({ schedule }) => {
 	    <div className='game-date'>{schedule.date}</div>
 	    <div className='game-location-name'>{schedule.location}</div>
 	    <div className='game-location-address'>{schedule.address}</div>
-	    <RsvpComponent textValue='IN' />
-	    <RsvpComponent textValue='OUT' />
+	    {/* <RsvpComponent textValue='IN' />
+	    <RsvpComponent textValue='OUT' /> */}
 	  </div>
   )
 }
@@ -123,16 +123,34 @@ const RsvpComponent = ({ textValue }) => {
 	);
 }
 
-const RosterComponent = ({ players }) => {
-	return (
-		<div className='Roster'>
-      <div className='roster-title'>Roster</div>
-      <div className='roster-subtitle'>{players.rsvpYes.length} player(s) confirmed</div>
-      {players.rsvpYes.map (name => {
-        return <div key={name} className='roster-rsvp-in'>{name}</div>;
-      })}
-    </div>
-	);
+class RosterComponent extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
+  }
+
+  handleOnKeyDown(e) {
+    // e.preventDefault();
+    if (e.keyCode === 13) {
+      console.log(`${e.keyCode} key code pressed`);
+    }
+  }
+
+  render() {
+    return (
+      <div className='Roster'>
+        <div className='roster-title'>Roster</div>
+        <div className='roster-subtitle'>{this.props.players.rsvpYes.length} player(s) confirmed</div>
+        <div className='rsvp-form'>
+          <input onKeyDown={this.handleOnKeyDown} placeholder='Enter Your Name To Play' type='text' />
+        </div>
+        {this.props.players.rsvpYes.map (name => {
+          return <div key={name} className='roster-rsvp-in'>{name}</div>;
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
