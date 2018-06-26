@@ -30,6 +30,7 @@ class App extends Component {
 	        <Route exact={true} path='/schedule' render={() => (
 	        	<ScheduleComponent schedule={this.state.schedule} />
 	        )}/>
+          <FooterComponent />
 	      </div>
 	    </Router>
     );
@@ -77,21 +78,26 @@ const NavComponent = () => {
 	return (
 		<nav className='App-navigation'>
       <div className='App-logo'>sportify</div>
-      <div className='nav-items'>
-        <button className='nav-home'>
-        	<Link to={'/'}>
-	          <img src={homeNavIcon} className="tab-icon" alt="home" />
-	          <span className='nav-text'> home </span>
-	        </Link>
-        </button>
-        <button className='nav-schedule'>
-        	<Link to={'/schedule'}>
-	          <img src={scheduleNavIcon} className="tab-icon" alt="schedule" />
-	          <span className='nav-text'> schedule </span>
-	        </Link>
-        </button>
-      </div>
     </nav>
+	);
+}
+
+const FooterComponent = () => {
+	return (
+    <div className='footer'>
+      <Link className='link-home' to={'/'}>
+        <button className='footer-home'>
+            <img src={homeNavIcon} className="tab-icon" alt="home" />
+            <span className='footer-text'> home </span>
+        </button>
+      </Link>
+      <Link to={'/schedule'}>
+        <button className='footer-schedule'>
+            <img src={scheduleNavIcon} className="tab-icon" alt="schedule" />
+            <span className='footer-text'> schedule </span>
+        </button>
+      </Link>
+    </div>
 	);
 }
 
@@ -111,8 +117,6 @@ const DetailsComponent = ({ schedule }) => {
 	    <div className='game-date'>{schedule.date}</div>
 	    <div className='game-location-name'>{schedule.location}</div>
 	    <div className='game-location-address'>{schedule.address}</div>
-	    {/* <RsvpComponent textValue='IN' />
-	    <RsvpComponent textValue='OUT' /> */}
 	  </div>
   )
 }
