@@ -4,19 +4,29 @@ import homeNavIcon from './home-nav-icon.svg';
 import scheduleNavIcon from './schedule-nav-icon.svg';
 import './App.css';
 
+// TODO: replace in memory data with a database (GraphQL)
+const players = require('./data/players.json');
+const schedule = require('./data/schedule.json');
+
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      players: require('./data/players.json'),
-      schedule: require('./data/schedule.json')
+      players: [],
+      schedule: []
     };
   }
 
   componentDidMount() {
     console.log('componentDidMount() called.');
+
+    // TODO: replace with a fetch
+    this.setState({
+      players: players,
+      schedule: schedule
+    });
   }
 
   render() {
@@ -40,13 +50,19 @@ class App extends Component {
 // TODO: Move below to separate files
 
 const HomeComponent = ({ schedule, players }) => {
+  const nextGame = (schedule.length > 0 && [].concat(schedule[0])) || [];
+
 	return (
 		<div className='container'>
 			<HeaderComponent title='Pickup Game' />
 	  	<div className='content'>
-	      <DetailsComponent schedule={schedule[0]} />
+        {nextGame.map(game => 
+          <DetailsComponent key={game.date} game={game} />
+        )}
 	      <div className='line-divider'></div>
-	      <RosterComponent players={players} />
+	      {players.length > 0 &&
+          <RosterComponent players={players} />
+        }
 	    </div>
 	  </div>
 	);
@@ -111,20 +127,14 @@ const HeaderComponent = ({ title }) => {
 	);
 }
 
-const DetailsComponent = ({ schedule }) => {
-	return (
-		<div className='Details'>
-	    <div className='game-date'>{schedule.date}</div>
-	    <div className='game-location-name'>{schedule.location}</div>
-	    <div className='game-location-address'>{schedule.address}</div>
-	  </div>
+const DetailsComponent = ({ game }) => {
+  return (
+    <div className='Details'>
+      <div className='game-date'>{game.date}</div>
+      <div className='game-location-name'>{game.location}</div>
+      <div className='game-location-address'>{game.address}</div>
+    </div>
   )
-}
-
-const RsvpComponent = ({ textValue }) => {
-	return (
-		<button className='rsvp-button'>{textValue}</button>
-	);
 }
 
 class RosterComponent extends Component {
@@ -143,12 +153,14 @@ class RosterComponent extends Component {
 
     if (e.keyCode === 13) {
       const playerName = e.target.value;
-      
+
       this.setState(prevState => ({
-        players: {
-          rsvpYes: prevState.players.rsvpYes.concat(playerName)
-        } 
+        players: prevState.players.concat(playerName)
       }));
+
+      // TODO: persist data here...
+
+      e.target.value = '';
     }
   }
 
@@ -156,11 +168,11 @@ class RosterComponent extends Component {
     return (
       <div className='Roster'>
         <div className='roster-title'>Roster</div>
-        <div className='roster-subtitle'>{this.state.players.rsvpYes.length} player(s) confirmed</div>
+        <div className='roster-subtitle'>{this.state.players.length} player(s) confirmed</div>
         <div className='rsvp-form'>
-          <input onKeyDown={this.handleOnKeyDown} placeholder='Enter Your Name To Play' type='text' />
+          <input onKeyDown={this.handleOnKeyDown} placeholder='Enter Player Name' type='text' />
         </div>
-        {this.state.players.rsvpYes.map (name => {
+        {this.state.players.map (name => {
           return <div key={name} className='roster-rsvp-in'>{name}</div>;
         })}
       </div>
