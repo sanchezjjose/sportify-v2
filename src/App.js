@@ -132,12 +132,23 @@ class RosterComponent extends Component {
   constructor(props) {
     super(props);
     this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
+
+    this.state = {
+      players: props.players 
+    };
   }
 
   handleOnKeyDown(e) {
     // e.preventDefault();
+
     if (e.keyCode === 13) {
-      console.log(`${e.keyCode} key code pressed`);
+      const playerName = e.target.value;
+      
+      this.setState(prevState => ({
+        players: {
+          rsvpYes: prevState.players.rsvpYes.concat(playerName)
+        } 
+      }));
     }
   }
 
@@ -145,11 +156,11 @@ class RosterComponent extends Component {
     return (
       <div className='Roster'>
         <div className='roster-title'>Roster</div>
-        <div className='roster-subtitle'>{this.props.players.rsvpYes.length} player(s) confirmed</div>
+        <div className='roster-subtitle'>{this.state.players.rsvpYes.length} player(s) confirmed</div>
         <div className='rsvp-form'>
           <input onKeyDown={this.handleOnKeyDown} placeholder='Enter Your Name To Play' type='text' />
         </div>
-        {this.props.players.rsvpYes.map (name => {
+        {this.state.players.rsvpYes.map (name => {
           return <div key={name} className='roster-rsvp-in'>{name}</div>;
         })}
       </div>
