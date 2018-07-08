@@ -7,6 +7,7 @@ import './App.css';
 // TODO: replace in memory data with a database (GraphQL)
 const players = require('./data/players.json');
 const schedule = require('./data/schedule.json');
+const teams = require('./data/teams.json');
 
 class App extends Component {
 
@@ -22,10 +23,15 @@ class App extends Component {
   componentDidMount() {
     console.log('componentDidMount() called.');
 
+    // TODO:
+    // get url path such as 'murry-hill-gang'
+    // get 'murry-hill-gang' team data
+
     // TODO: replace with a fetch
     this.setState({
       players: players,
-      schedule: schedule
+      schedule: schedule,
+      team: teams[0]
     });
   }
 
