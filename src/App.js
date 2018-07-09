@@ -5,8 +5,6 @@ import scheduleNavIcon from './schedule-nav-icon.svg';
 import './App.css';
 
 // TODO: replace in memory data with a database (GraphQL)
-const players = require('./data/players.json');
-const schedule = require('./data/schedule.json');
 const teams = require('./data/teams.json');
 
 class App extends Component {
@@ -16,7 +14,8 @@ class App extends Component {
 
     this.state = {
       players: [],
-      schedule: []
+      schedule: [],
+      team: {}
     };
   }
 
@@ -26,11 +25,12 @@ class App extends Component {
     // TODO:
     // get url path such as 'murry-hill-gang'
     // get 'murry-hill-gang' team data
+    // const teamId = window.location.pathname.split('/')[1];
 
     // TODO: replace with a fetch
     this.setState({
-      players: players,
-      schedule: schedule,
+      players: teams[0].seasons[0].schedule[0].players,
+      schedule: teams[0].seasons[0].schedule,
       team: teams[0]
     });
   }
@@ -40,13 +40,13 @@ class App extends Component {
     	<Router>
 	      <div className='App'> 
 	        <NavComponent />
-	        <Route exact={true} path='/' render={() => (
+	        <Route exact={true} path='/:team_id' render={() => (
 	        	<HomeComponent schedule={this.state.schedule} players={this.state.players} />
 	        )}/>
-	        <Route exact={true} path='/schedule' render={() => (
+	        <Route exact={true} path='/:team_id/schedule' render={() => (
 	        	<ScheduleComponent schedule={this.state.schedule} />
 	        )}/>
-          <FooterComponent />
+          <FooterComponent teamId={this.state.team.id} />
 	      </div>
 	    </Router>
     );
@@ -104,16 +104,16 @@ const NavComponent = () => {
 	);
 }
 
-const FooterComponent = () => {
+const FooterComponent = ({ teamId }) => {
 	return (
     <div className='footer'>
-      <Link className='link-home' to={'/'}>
+      <Link className='link-home' to={`/${teamId}`}>
         <button className='footer-home'>
             <img src={homeNavIcon} className="tab-icon" alt="home" />
             <span className='footer-text'> home </span>
         </button>
       </Link>
-      <Link to={'/schedule'}>
+      <Link to={`/${teamId}/schedule`}>
         <button className='footer-schedule'>
             <img src={scheduleNavIcon} className="tab-icon" alt="schedule" />
             <span className='footer-text'> schedule </span>

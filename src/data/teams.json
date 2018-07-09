@@ -1,102 +1,100 @@
-{
-	"teams": [
-		{
-			"id": "murry-hill-gang",
-			"name": "Murry Hill Gang",
-			"seasons": [
-				{
-					"schedule": [
-						{
-							"type": "Pickup Game",
-							"date": "September 25th, 7:00 p.m.",
-							"location": "Murry Bergtraum High School",
-							"address": "411 Pearl St, New York, NY 10038",
-							"players": [
-								"Max Moise",
-								"Jose Sanchez",
-								"Edwin",
-								"Chris",
-								"Fan Feng",
-								"Hao Tan",
-								"Ernest Lindain",
-								"Dave",
-								"William Lin"
-							]
-						},
-						{
-							"type": "Pickup Game",
-							"date": "November 25th, 7:00 p.m.",
-							"location": "Murry Bergtraum High School",
-							"address": "411 Pearl St, New York, NY 10038",
-							"players": [
-								"Fan Feng",
-								"Hao Tan",
-								"Ernest Lindain",
-								"Dave",
-								"William Lin"
-							]
-						},
-						{
-							"type": "Pickup Game",
-							"date": "December 25th, 7:00 p.m.",
-							"location": "Murry Bergtraum High School",
-							"address": "411 Pearl St, New York, NY 10038",
-							"players": [
-								"Max Moise",
-								"Jose Sanchez",
-								"Edwin",
-								"Chris"
-							]
-						}
-					]
-				},
-				{
-					"schedule": [
-						{
-							"type": "Pickup Game",
-							"date": "July 25th, 7:00 p.m.",
-							"location": "Murry Bergtraum High School",
-							"address": "411 Pearl St, New York, NY 10038",
-							"players": [
-								"Max Moise",
-								"Jose Sanchez",
-								"Edwin",
-								"Chris",
-								"Fan Feng",
-								"Hao Tan",
-								"Ernest Lindain",
-								"Dave",
-								"William Lin"
-							]
-						},
-						{
-							"type": "Pickup Game",
-							"date": "August 25th, 7:00 p.m.",
-							"location": "Murry Bergtraum High School",
-							"address": "411 Pearl St, New York, NY 10038",
-							"players": [
-								"Fan Feng",
-								"Hao Tan",
-								"Ernest Lindain",
-								"Dave",
-								"William Lin"
-							]
-						},
-						{
-							"type": "Pickup Game",
-							"date": "October 25th, 7:00 p.m.",
-							"location": "Murry Bergtraum High School",
-							"address": "411 Pearl St, New York, NY 10038",
-							"players": [
-								"Max Moise",
-								"Jose Sanchez",
-								"Edwin",
-								"Chris"
-							]
-						}
-					]
-				}
-			]
-		}
-	]
-}
+[
+	{
+		"id": "murry-hill-gang",
+		"name": "Murry Hill Gang",
+		"seasons": [
+			{
+				"schedule": [
+					{
+						"type": "Pickup Game",
+						"date": "September 25th, 7:00 p.m.",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Max Moise",
+							"Jose Sanchez",
+							"Edwin",
+							"Chris",
+							"Fan Feng",
+							"Hao Tan",
+							"Ernest Lindain",
+							"Dave",
+							"William Lin"
+						]
+					},
+					{
+						"type": "Pickup Game",
+						"date": "November 25th, 7:00 p.m.",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Fan Feng",
+							"Hao Tan",
+							"Ernest Lindain",
+							"Dave",
+							"William Lin"
+						]
+					},
+					{
+						"type": "Pickup Game",
+						"date": "December 25th, 7:00 p.m.",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Max Moise",
+							"Jose Sanchez",
+							"Edwin",
+							"Chris"
+						]
+					}
+				]
+			},
+			{
+				"schedule": [
+					{
+						"type": "Pickup Game",
+						"date": "July 25th, 7:00 p.m.",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Max Moise",
+							"Jose Sanchez",
+							"Edwin",
+							"Chris",
+							"Fan Feng",
+							"Hao Tan",
+							"Ernest Lindain",
+							"Dave",
+							"William Lin"
+						]
+					},
+					{
+						"type": "Pickup Game",
+						"date": "August 25th, 7:00 p.m.",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Fan Feng",
+							"Hao Tan",
+							"Ernest Lindain",
+							"Dave",
+							"William Lin"
+						]
+					},
+					{
+						"type": "Pickup Game",
+						"date": "October 25th, 7:00 p.m.",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Max Moise",
+							"Jose Sanchez",
+							"Edwin",
+							"Chris"
+						]
+					}
+				]
+			}
+		]
+	}
+]
