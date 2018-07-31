@@ -181,6 +181,7 @@
 .Roster .rsvp-form input {
   border: 0;
   border-bottom: 1px solid #ddd;
+  border-radius: 0;
   padding: 25px 5px;
   width: 70%;
   height: 15px;
