@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import AWS from 'aws-sdk';
+
 import homeNavIcon from './home-nav-icon.svg';
 import scheduleNavIcon from './schedule-nav-icon.svg';
 import './App.css';
 
-// TODO: replace in memory data with a database (GraphQL)
-const teams = require('./data/teams.json');
+// TODO: consider using axios: https://github.com/axios/axios
+
+AWS.config.update({ 
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID, 
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
+});
+
+AWS.config.region = 'us-east-1';
 
 class App extends Component {
 
@@ -22,17 +30,35 @@ class App extends Component {
   componentDidMount() {
     console.log('componentDidMount() called.');
 
-    // TODO:
-    // get url path such as 'murry-hill-gang'
-    // get 'murry-hill-gang' team data
-    // const teamId = window.location.pathname.split('/')[1];
+    const docClient = new AWS.DynamoDB.DocumentClient();
+    const teamId = window.location.pathname.split('/')[1];
 
-    // TODO: replace with a fetch
-    this.setState({
-      players: teams[0].seasons[0].schedule[0].players,
-      schedule: teams[0].seasons[0].schedule,
-      team: teams[0]
-    });
+    if (teamId.length > 0) {
+      const params = {
+        TableName: 'Teams',
+        Key: {
+          'id': teamId
+        }
+      }
+
+      docClient.get(params, (err, data) => {
+          if (err) {
+            console.error('Unable to read item. Error JSON:', JSON.stringify(err, null, 2));
+
+          } else {
+            const teams = JSON.parse(JSON.stringify(data, null, 2));
+            const players = (teams && teams.Item.seasons[0].schedule[0].players) || [];
+            const schedule = (teams && teams.Item.seasons[0].schedule) || [];
+            const team = (teams && teams.Item) || {};
+
+            this.setState({
+              players: players,
+              schedule: schedule,
+              team: team
+            });
+          }
+      });
+    }
   }
 
   render() {
