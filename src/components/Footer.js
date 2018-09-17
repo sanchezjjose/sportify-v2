@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import homeNavIcon from './home-nav-icon.svg';
 import scheduleNavIcon from './schedule-nav-icon.svg';
