@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Header from './Header';
-import Details from './Details';
-import Roster from './Roster';
+import Header from '../Header/Header';
+import Details from '../Details/Details';
+import Roster from '../Roster/Roster';
+import './Home.css';
 
 const Home = ({ schedule, players }) => {
   const nextGame = (schedule.length > 0 && [].concat(schedule[0])) || [];

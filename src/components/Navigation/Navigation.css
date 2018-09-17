@@ -1,0 +1,18 @@
+.App-navigation {
+  display: grid;
+  align-items: center;
+  background-color: #fff;
+  width: auto;
+}
+
+.App-navigation .App-logo {
+  height: 43px;
+  color: #000;
+  margin-left: 13px;
+  margin-bottom: 9px;
+  margin-top: 8px;
+  font-size: 32px;
+  font-weight: 800;
+  font-style: normal;
+  text-align: center;
+}

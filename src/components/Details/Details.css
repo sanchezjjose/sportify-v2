@@ -1,0 +1,17 @@
+.Details .game-date {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.Details .game-location-name {
+  font-size: 20px;  
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.Details .game-location-address {
+  color: #3780D5;
+  font-size: 14px;
+  font-weight: 600;
+}

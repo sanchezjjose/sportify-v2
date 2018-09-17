@@ -1,0 +1,28 @@
+.Schedule {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+
+.Schedule .game-details {
+  padding-left: 30px;
+  text-align: left;
+  justify-self: left;
+  font-size: 16px;
+}
+
+.Schedule .game-date {
+  font-weight: 400;
+}
+
+.Schedule .game-location-name {
+  font-weight: 600;
+}
+
+.Schedule .game-location-address {
+  font-weight: 300;
+}
+
+.container .Schedule div.line-divider {
+  margin: 30px 0;
+}

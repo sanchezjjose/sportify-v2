@@ -4,10 +4,10 @@ import AWS from 'aws-sdk';
 
 import './App.css';
 
-import Home from './Home';
-import Schedule from './Schedule';
-import Navigation from './Navigation';
-import Footer from './Footer';
+import Home from './Home/Home';
+import Schedule from './Schedule/Schedule';
+import Navigation from './Navigation/Navigation';
+import Footer from './Footer/Footer';
 
 // TODO: consider using axios: https://github.com/axios/axios
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './Footer.css';
 import homeNavIcon from './home-nav-icon.svg';
 import scheduleNavIcon from './schedule-nav-icon.svg';
 
