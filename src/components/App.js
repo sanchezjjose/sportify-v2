@@ -65,17 +65,28 @@ class App extends Component {
   }
 
   render() {
+    const isTeamPage = Object.keys(this.state.team).length > 0;
+
     return (
       <Router>
         <div className='App'> 
           <Navigation />
-          <Route exact={true} path='/:team_id' render={() => (
-            <Home schedule={this.state.schedule} players={this.state.players} />
-          )}/>
-          <Route exact={true} path='/:team_id/schedule' render={() => (
-            <Schedule schedule={this.state.schedule} />
-          )}/>
-          <Footer teamId={this.state.team.id} />
+
+          {isTeamPage ? (
+            <div className='container'>
+              <Route exact={true} path='/:team_id' render={() => (
+                <Home schedule={this.state.schedule} players={this.state.players} />
+              )}/>
+              <Route exact={true} path='/:team_id/schedule' render={() => (
+                <Schedule schedule={this.state.schedule} />
+              )}/>
+              <Footer teamId={this.state.team.id} />
+            </div>
+            ) : (
+            <div className='container'>
+              Welcome to Sportify. Please visit your team page.
+            </div>
+          )}
         </div>
       </Router>
     );

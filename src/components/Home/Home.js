@@ -9,7 +9,7 @@ const Home = ({ schedule, players }) => {
   const nextGame = (schedule.length > 0 && [].concat(schedule[0])) || [];
 
   return (
-    <div className='container'>
+    <div className='homepage'>
       <Header title='Pickup Game' />
       <div className='content'>
         {nextGame.map(game => 

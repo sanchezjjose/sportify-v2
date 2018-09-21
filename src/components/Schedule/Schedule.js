@@ -4,7 +4,7 @@ import './Schedule.css';
 
 const Schedule = ({ schedule }) => {
   return (
-    <div className='container'>
+    <div className='schedule-page'>
       <Header title='Schedule' />
       <div className='content'>
         {schedule.map(game => {
