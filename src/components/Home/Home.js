@@ -11,16 +11,20 @@ const Home = ({ schedule, players }) => {
   return (
     <div className='homepage'>
       <Header title='Pickup Game' />
-      <div className='content'>
-        {nextGame.map(game => 
-          <Details key={game.date} game={game} />
-        )}
+      <div className='content-wrapper'>
+        <div className='content'>
+          <div className='Home'>
+            {nextGame.map(game => 
+              <Details key={game.date} game={game} />
+            )}
 
-        <div className='line-divider'></div>
+            <div className='line-divider'></div>
 
-        {players.length > 0 &&
-          <Roster players={players} />
-        }
+            {players.length > 0 &&
+              <Roster players={players} />
+            }
+          </div>
+        </div>
       </div>
     </div>
     );

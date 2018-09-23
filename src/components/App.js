@@ -71,7 +71,6 @@ class App extends Component {
       <Router>
         <div className='App'> 
           <Navigation />
-
           {isTeamPage ? (
             <div className='container'>
               <Route exact={true} path='/:team_id' render={() => (
@@ -84,7 +83,18 @@ class App extends Component {
             </div>
             ) : (
             <div className='container'>
-              Welcome to Sportify. Please visit your team page.
+              <div className='content-wrapper'>
+                <div className='content'>
+                  <h2>Welcome to Sportify.</h2>
+                  <p className='description'>
+                    {`
+                      Schedule, RSVP, get directions, create music playlists, and more...
+
+                      Please visit your team page to get started.
+                    `}
+                  </p>
+                </div>
+              </div>
             </div>
           )}
         </div>

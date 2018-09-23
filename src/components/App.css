@@ -10,12 +10,23 @@
   padding-bottom: 80px;
 }
 
-.App .content {
+.App .content-wrapper {
   display: grid;
   text-align: center;
   justify-items: center;
   margin-top: 26px;
   margin-bottom: 26px;
+}
+
+.App .content {
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  width: 90%;
+}
+
+.App .content .description {
+  text-align: left;
+  white-space: pre-line;
 }
 
 .App .content .line-divider {
