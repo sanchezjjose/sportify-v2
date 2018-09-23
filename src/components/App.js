@@ -4,9 +4,9 @@ import AWS from 'aws-sdk';
 
 import './App.css';
 
+import Landing from './Landing/Landing';
 import Home from './Home/Home';
 import Schedule from './Schedule/Schedule';
-import Navigation from './Navigation/Navigation';
 import Footer from './Footer/Footer';
 
 // TODO: consider using axios: https://github.com/axios/axios
@@ -70,33 +70,21 @@ class App extends Component {
     return (
       <Router>
         <div className='App'> 
-          <Navigation />
-          {isTeamPage ? (
-            <div className='container'>
-              <Route exact={true} path='/:team_id' render={() => (
-                <Home schedule={this.state.schedule} players={this.state.players} />
-              )}/>
-              <Route exact={true} path='/:team_id/schedule' render={() => (
-                <Schedule schedule={this.state.schedule} />
-              )}/>
-              <Footer teamId={this.state.team.id} />
-            </div>
-            ) : (
-            <div className='container'>
-              <div className='content-wrapper'>
-                <div className='content'>
-                  <h2>Welcome to Sportify.</h2>
-                  <p className='description'>
-                    {`
-                      Schedule, RSVP, get directions, create music playlists, and more...
-
-                      Please visit your team page to get started.
-                    `}
-                  </p>
-                </div>
+          <div className='container'>
+            {isTeamPage ? (
+              <div>
+                <Route exact={true} path='/:team_id' render={() => (
+                  <Home schedule={this.state.schedule} players={this.state.players} />
+                )}/>
+                <Route exact={true} path='/:team_id/schedule' render={() => (
+                  <Schedule schedule={this.state.schedule} />
+                )}/>
+                <Footer teamId={this.state.team.id} />
               </div>
-            </div>
-          )}
+            ) : (
+              <Landing />
+            )}
+          </div>
         </div>
       </Router>
     );

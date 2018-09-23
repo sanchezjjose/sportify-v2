@@ -35,3 +35,7 @@
   background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
   margin: 20px 0;
 }
+
+.App .welcome-message span {
+  background-color: yellow;
+}

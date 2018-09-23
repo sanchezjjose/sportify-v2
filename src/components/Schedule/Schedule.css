@@ -1,4 +1,4 @@
-.Schedule {
+.Schedule .game-details-wrapper {
   display: grid;
   width: 100%;
   justify-items: center;
@@ -23,6 +23,6 @@
   font-weight: 300;
 }
 
-.container .Schedule div.line-divider {
+.Schedule .container .Schedule div.line-divider {
   margin: 30px 0;
 }
