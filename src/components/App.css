@@ -1,13 +1,13 @@
 .App {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 75px auto;
+  grid-template-rows: 75px auto; */
   font-family: 'Open Sans', sans-serif;
 }
 
 .App .container {
-  display: grid;
-  padding-bottom: 80px;
+  /* display: grid; */
+  /* padding-bottom: 80px; */
 }
 
 .App .content-wrapper {
@@ -16,6 +16,9 @@
   justify-items: center;
   margin-top: 26px;
   margin-bottom: 26px;
+
+  /* Makes container scrollable */
+  padding-bottom: 80px;
 }
 
 .App .content {

@@ -70,21 +70,19 @@ class App extends Component {
     return (
       <Router>
         <div className='App'> 
-          <div className='container'>
-            {isTeamPage ? (
-              <div>
-                <Route exact={true} path='/:team_id' render={() => (
-                  <Home schedule={this.state.schedule} players={this.state.players} />
-                )}/>
-                <Route exact={true} path='/:team_id/schedule' render={() => (
-                  <Schedule schedule={this.state.schedule} />
-                )}/>
-                <Footer teamId={this.state.team.id} />
-              </div>
-            ) : (
-              <Landing />
-            )}
-          </div>
+          {isTeamPage ? (
+            <div className='container'>
+              <Route exact={true} path='/:team_id' render={() => (
+                <Home schedule={this.state.schedule} players={this.state.players} />
+              )}/>
+              <Route exact={true} path='/:team_id/schedule' render={() => (
+                <Schedule schedule={this.state.schedule} />
+              )}/>
+              <Footer teamId={this.state.team.id} />
+            </div>
+          ) : (
+            <Landing />
+          )}
         </div>
       </Router>
     );
