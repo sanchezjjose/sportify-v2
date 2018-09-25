@@ -31,8 +31,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount() called.');
-
     const docClient = new AWS.DynamoDB.DocumentClient();
     const teamId = window.location.pathname.split('/')[1];
 
@@ -50,39 +48,40 @@ class App extends Component {
 
           } else {
             const teams = JSON.parse(JSON.stringify(data, null, 2));
-            const players = (teams && teams.Item.seasons[0].schedule[0].players) || [];
-            const schedule = (teams && teams.Item.seasons[0].schedule) || [];
-            const team = (teams && teams.Item) || {};
 
-            this.setState({
-              players: players,
-              schedule: schedule,
-              team: team
-            });
+            if (Object.keys(teams).length > 0) {
+              const players = (teams && teams.Item.seasons[0].schedule[0].players) || [];
+              const schedule = (teams && teams.Item.seasons[0].schedule) || [];
+              const team = (teams && teams.Item) || {};
+
+              this.setState({
+                players: players,
+                schedule: schedule,
+                team: team
+              });
+            }
           }
       });
     }
   }
 
   render() {
-    const isTeamPage = Object.keys(this.state.team).length > 0;
-
     return (
       <Router>
         <div className='App'> 
-          {isTeamPage ? (
+          <Route exact path="/" component={Landing}/> 
+          <Route exact={true} path='/:team_id' render={() => (
             <div className='container'>
-              <Route exact={true} path='/:team_id' render={() => (
-                <Home schedule={this.state.schedule} players={this.state.players} />
-              )}/>
-              <Route exact={true} path='/:team_id/schedule' render={() => (
-                <Schedule schedule={this.state.schedule} />
-              )}/>
+              <Home schedule={this.state.schedule} players={this.state.players} />
               <Footer teamId={this.state.team.id} />
             </div>
-          ) : (
-            <Landing />
-          )}
+          )}/>
+          <Route exact={true} path='/:team_id/schedule' render={() => (
+            <div className='container'>
+              <Schedule schedule={this.state.schedule} />
+              <Footer teamId={this.state.team.id} />
+            </div>
+          )}/>
         </div>
       </Router>
     );

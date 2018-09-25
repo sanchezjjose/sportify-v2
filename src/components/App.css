@@ -5,11 +5,6 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.App .container {
-  /* display: grid; */
-  /* padding-bottom: 80px; */
-}
-
 .App .content-wrapper {
   display: grid;
   text-align: center;
@@ -27,18 +22,9 @@
   width: 90%;
 }
 
-.App .content .description {
-  text-align: left;
-  white-space: pre-line;
-}
-
 .App .content .line-divider {
   height: 2px;
   width: 90%;
   background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
   margin: 20px 0;
-}
-
-.App .welcome-message span {
-  background-color: yellow;
 }
