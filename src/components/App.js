@@ -49,6 +49,7 @@ class App extends Component {
           } else {
             const teams = JSON.parse(JSON.stringify(data, null, 2));
 
+            // TODO: use date library to determine the next game.
             if (Object.keys(teams).length > 0) {
               const players = (teams && teams.Item.seasons[0].schedule[0].players) || [];
               const schedule = (teams && teams.Item.seasons[0].schedule) || [];
@@ -68,7 +69,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className='App'> 
+        <div className='App'>
           <Route exact path="/" component={Landing}/> 
           <Route exact={true} path='/:team_id' render={() => (
             <div className='container'>
