@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
-import { getNextGame } from '../api/TeamAPI';
+import { getTeam } from '../api/TeamAPI';
 import Landing from './Landing/Landing';
 import Home from './Home/Home';
 import Schedule from './Schedule/Schedule';
@@ -15,9 +15,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      players: [],
-      schedule: [],
-      team: {}
+      team: {},
+      schedule: []
     };
   }
 
@@ -25,8 +24,15 @@ class App extends Component {
     const teamId = window.location.pathname.split('/')[1];
 
     if (teamId.length > 0) {
-      getNextGame(teamId).then(data => {
-        this.setState(data);
+      getTeam(teamId).then(team => {
+        // TODO: get active season based on active boolean
+        const currentSeason = (team.seasons.length > 0 && team.seasons[0]) || {};
+        const schedule = currentSeason.schedule;
+
+        this.setState({
+          team: team,
+          schedule: schedule  
+        });
 
       }).catch(err => {
         console.error('Error getting next game: ', err);
@@ -41,7 +47,7 @@ class App extends Component {
           <Route exact path="/" component={Landing}/> 
           <Route exact={true} path='/:team_id' render={() => (
             <div className='container'>
-              <Home schedule={this.state.schedule} players={this.state.players} />
+              <Home schedule={this.state.schedule} />
               <Footer teamId={this.state.team.id} />
             </div>
           )}/>

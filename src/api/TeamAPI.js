@@ -8,7 +8,7 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const getNextGame = (id) => {
+const getTeam = (id) => {
   return new Promise((resolve, reject) => {
     const params = {
       TableName: 'Teams',
@@ -25,17 +25,9 @@ const getNextGame = (id) => {
       } else {
         const teams = JSON.parse(JSON.stringify(data, null, 2));
 
-        // TODO: use date library to determine the next game.
         if (Object.keys(teams).length > 0) {
-          const players = (teams && teams.Item.seasons[0].schedule[0].players) || [];
-          const schedule = (teams && teams.Item.seasons[0].schedule) || [];
           const team = (teams && teams.Item) || {};
-
-          resolve({
-            players: players,
-            schedule: schedule,
-            team: team
-          });
+          resolve(team);
 
         } else {
           reject(new Error(`Team ${id} not found.`));
@@ -57,4 +49,4 @@ const removePlayer = (id, playerName) => {
   console.log(`Removing ${playerName} from game...`);
 };
 
-export { getNextGame, getSchedule, addPlayer, removePlayer };
+export { getTeam, getSchedule, addPlayer, removePlayer };

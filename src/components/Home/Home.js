@@ -9,29 +9,22 @@ import './Home.css';
 
 class Home extends Component {
 
-  componentDidMount () {
-    console.log('Home component mounted...');
-  }
-
   render () {
-    // TODO: this should be a single object
-    const nextGame = (this.props.schedule.length > 0 && [].concat(this.props.schedule[0])) || [];
+    // TODO: determine nextGame using date comparison
+    const nextGame = this.props.schedule[0] || {};
+    const players = (nextGame.players) || [];
 
     return (
       <div className='Home'>
         <Navigation />
-        <Header title='Pickup Game' />
+        <Header title={nextGame.type} />
         <div className='content-wrapper'>
           <div className='content'>
             <div className='next-game-details-wrapper'>
-              {nextGame.map(game => 
-                <Details key={game.date} game={game} />
-              )}
-
+              <Details key={nextGame.date} game={nextGame} />
               <div className='line-divider'></div>
-
-              {this.props.players.length > 0 &&
-                <Roster players={this.props.players} />
+              {players.length > 0 &&
+                <Roster players={players} />
               }
             </div>
           </div>
