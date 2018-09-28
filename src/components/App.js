@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { query } from 'safetydance';
 
 import './App.css';
 
@@ -25,9 +26,9 @@ class App extends Component {
 
     if (teamId.length > 0) {
       getTeam(teamId).then(team => {
-        // TODO: get active season based on active boolean
-        const currentSeason = (team.seasons.length > 0 && team.seasons[0]) || {};
-        const schedule = currentSeason.schedule;
+        // const activeSeason = query(team, 'seasons', {}).filter(s => s.active)[0];
+        const activeSeason = (team.seasons.length > 0 && team.seasons.filter(s => s.active)[0]) || {};
+        const schedule = activeSeason.schedule;
 
         this.setState({
           team: team,

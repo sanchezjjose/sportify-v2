@@ -10,7 +10,7 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 console.log('Importing teams into DynamoDB. Please wait.');
 
-var allTeams = JSON.parse(fs.readFileSync('lib/data/teams.json', 'utf8'));
+var allTeams = JSON.parse(fs.readFileSync('scripts/data/teams.json', 'utf8'));
 allTeams.forEach(function(team) {
 
     console.log(team);

@@ -3,7 +3,8 @@
 		"id": "murry-hill-gang",
 		"name": "Murry Hill Gang",
 		"seasons": [
-			{
+			{	
+				"active": true,
 				"schedule": [
 					{
 						"type": "Pickup Game",
@@ -74,6 +75,7 @@
 				]
 			},
 			{
+				"active": false,
 				"schedule": [
 					{
 						"type": "Pickup Game",
