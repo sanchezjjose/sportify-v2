@@ -9,10 +9,6 @@ import './Home.css';
 
 class Home extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render () {
     const nextGame = this.props.schedule[0] || {};
     const players = nextGame.players || [];
