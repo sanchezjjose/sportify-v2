@@ -9,10 +9,25 @@ import './Home.css';
 
 class Home extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.nextGame = this.nextGame.bind(this);
+  }
+
+  nextGame = () => {
+    const compare = (a, b) => {
+      if (new Date(a.date) < new Date(b.date)) return -1;
+      if (new Date(a.date) > new Date(b.date)) return 1;
+      return 0;
+    }
+
+    return this.props.schedule.sort(compare)[0] || {};
+  };
+
   render () {
-    // TODO: determine nextGame using date comparison
-    const nextGame = this.props.schedule[0] || {};
-    const players = (nextGame.players) || [];
+    const nextGame = this.nextGame();
+    const players = nextGame.players || [];
 
     return (
       <div className='Home'>

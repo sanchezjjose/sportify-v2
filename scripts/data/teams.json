@@ -8,7 +8,44 @@
 				"schedule": [
 					{
 						"type": "Pickup Game",
-						"date": "September 25th, 2018, 7:00 p.m.",
+						"date": "October 10, 2018 7:00",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Fan Feng",
+							"Hao Tan",
+							"Ernest Lindain",
+							"Dave",
+							"William Lin"
+						]
+					},
+					{
+						"type": "Pickup Game",
+						"date": "November 7, 2018 7:00",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Max Moise",
+							"Jose Sanchez",
+							"Edwin",
+							"Chris"
+						]
+					},
+					{
+						"type": "Pickup Game",
+						"date": "October 17, 2018 7:00",
+						"location": "Murry Bergtraum High School",
+						"address": "411 Pearl St, New York, NY 10038",
+						"players": [
+							"Max Moise",
+							"Jose Sanchez",
+							"Edwin",
+							"Chris"
+						]
+					},
+					{
+						"type": "Pickup Game",
+						"date": "October 3, 2018 7:00",
 						"location": "Murry Bergtraum High School",
 						"address": "411 Pearl St, New York, NY 10038",
 						"players": [
@@ -21,55 +58,6 @@
 							"Ernest Lindain",
 							"Dave",
 							"William Lin"
-						]
-					},
-					{
-						"type": "Pickup Game",
-						"date": "November 25th, 2018, 7:00 p.m.",
-						"location": "Murry Bergtraum High School",
-						"address": "411 Pearl St, New York, NY 10038",
-						"players": [
-							"Fan Feng",
-							"Hao Tan",
-							"Ernest Lindain",
-							"Dave",
-							"William Lin"
-						]
-					},
-					{
-						"type": "Pickup Game",
-						"date": "December 25th, 2018, 7:00 p.m.",
-						"location": "Murry Bergtraum High School",
-						"address": "411 Pearl St, New York, NY 10038",
-						"players": [
-							"Max Moise",
-							"Jose Sanchez",
-							"Edwin",
-							"Chris"
-						]
-					},
-					{
-						"type": "Pickup Game",
-						"date": "January 25th, 2019, 7:00 p.m.",
-						"location": "Murry Bergtraum High School",
-						"address": "411 Pearl St, New York, NY 10038",
-						"players": [
-							"Max Moise",
-							"Jose Sanchez",
-							"Edwin",
-							"Chris"
-						]
-					},
-					{
-						"type": "Pickup Game",
-						"date": "February 25th, 2019, 7:00 p.m.",
-						"location": "Murry Bergtraum High School",
-						"address": "411 Pearl St, New York, NY 10038",
-						"players": [
-							"Max Moise",
-							"Jose Sanchez",
-							"Edwin",
-							"Chris"
 						]
 					}
 				]
@@ -79,7 +67,7 @@
 				"schedule": [
 					{
 						"type": "Pickup Game",
-						"date": "July 25th, 2019, 7:00 p.m.",
+						"date": "January 25, 2019 7:00",
 						"location": "Murry Bergtraum High School",
 						"address": "411 Pearl St, New York, NY 10038",
 						"players": [
@@ -92,31 +80,6 @@
 							"Ernest Lindain",
 							"Dave",
 							"William Lin"
-						]
-					},
-					{
-						"type": "Pickup Game",
-						"date": "August 25th, 2019, 7:00 p.m.",
-						"location": "Murry Bergtraum High School",
-						"address": "411 Pearl St, New York, NY 10038",
-						"players": [
-							"Fan Feng",
-							"Hao Tan",
-							"Ernest Lindain",
-							"Dave",
-							"William Lin"
-						]
-					},
-					{
-						"type": "Pickup Game",
-						"date": "October 25th, 2019, 7:00 p.m.",
-						"location": "Murry Bergtraum High School",
-						"address": "411 Pearl St, New York, NY 10038",
-						"players": [
-							"Max Moise",
-							"Jose Sanchez",
-							"Edwin",
-							"Chris"
 						]
 					}
 				]
