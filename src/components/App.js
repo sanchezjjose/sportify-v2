@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
-import { getTeam } from '../api/TeamAPI';
+import { getTeam, sortScheduleByDate } from '../api/TeamAPI';
 import Landing from './Landing/Landing';
 import Home from './Home/Home';
 import Schedule from './Schedule/Schedule';
@@ -26,7 +26,7 @@ class App extends Component {
     if (teamId.length > 0) {
       getTeam(teamId).then(team => {
         const activeSeason = (team.seasons.length > 0 && team.seasons.find(s => s.active)) || {};
-        const schedule = activeSeason.schedule;
+        const schedule = sortScheduleByDate(activeSeason.schedule);
 
         this.setState({
           team: team,
