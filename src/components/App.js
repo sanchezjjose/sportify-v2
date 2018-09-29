@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { query } from 'safetydance';
 
 import './App.css';
 
@@ -26,7 +25,6 @@ class App extends Component {
 
     if (teamId.length > 0) {
       getTeam(teamId).then(team => {
-        // const activeSeason = query(team, 'seasons', {}).filter(s => s.active)[0];
         const activeSeason = (team.seasons.length > 0 && team.seasons.find(s => s.active)) || {};
         const schedule = activeSeason.schedule;
 
