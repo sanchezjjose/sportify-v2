@@ -39,8 +39,8 @@ const getTeam = (id) => {
   });
 };
 
-const addPlayer = (id, playerName) => {
-  console.log(`Adding ${playerName} to game...`);
+const addPlayer = (id, player) => {
+  console.log(`Adding ${player} to game...`);
 
   return new Promise((resolve, reject) => {
     const params = {
@@ -48,17 +48,21 @@ const addPlayer = (id, playerName) => {
       Key: {
         'id': id
       },
-      UpdateExpression: "set  = :s, info.plot=:p, info.actors=:a, ",
-      ExpressionAttributeValues:{
-          ":s": "seasons",
-          "#active": 5.5,
-          ":sch": "schedule",
-          ":p": ["Larry", "Moe", "Curly"]
+      UpdateExpression: "SET seasons[0].schedule[3].#p = list_append(seasons[0].schedule[3].#p, :new_player)",
+      ExpressionAttributeNames: {
+        // "#t": "type",
+        "#p": "players"
       },
-      ReturnValues:"UPDATED_NEW"
+      ExpressionAttributeValues: {
+          ":new_player": [ player ]
+          // "#active": 5.5,
+          // ":sch": "schedule",
+          // ":p": ["Larry", "Moe", "Curly"]
+      },
+      ReturnValues:"ALL_NEW"
     };
 
-    docClient.get(params, (err, data) => {
+    docClient.update(params, (err, data) => {
       if (err) {
         console.error('Unable to add item. Error JSON:', JSON.stringify(err, null, 2));
         reject(err)
@@ -67,13 +71,8 @@ const addPlayer = (id, playerName) => {
         const teams = JSON.parse(JSON.stringify(data, null, 2));
         console.log(teams);
 
-        if (Object.keys(teams).length > 0) {
-          const team = (teams && teams.Item) || {};
-          resolve(team);
-
-        } else {
-          reject(new Error(`Team ${id} not found.`));
-        }
+        const team = (teams && teams.Item) || {};
+        resolve(team);
       }
     })
   });

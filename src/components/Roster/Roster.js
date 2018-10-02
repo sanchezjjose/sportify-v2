@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './Roster.css';
+import { addPlayer } from '../../api/TeamAPI';
 
 class Roster extends Component {
 
@@ -24,6 +25,8 @@ class Roster extends Component {
       }));
 
       // TODO: persist data here...
+      const teamId = window.location.pathname.split('/')[1];
+      addPlayer(teamId, playerName);
 
       e.target.value = '';
     }
