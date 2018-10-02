@@ -23,7 +23,7 @@ class Home extends Component {
               <Details key={nextGame.date} game={nextGame} />
               <div className='line-divider'></div>
               {players.length > 0 &&
-                <Roster players={players} />
+                <Roster metadata={this.props.metadata} players={players} />
               }
             </div>
           </div>

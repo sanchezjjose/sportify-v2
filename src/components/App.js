@@ -16,7 +16,8 @@ class App extends Component {
 
     this.state = {
       team: {},
-      schedule: []
+      schedule: [],
+      metadata: {}
     };
   }
 
@@ -25,12 +26,21 @@ class App extends Component {
 
     if (teamId.length > 0) {
       getTeam(teamId).then(team => {
-        const activeSeason = (team.seasons.length > 0 && team.seasons.find(s => s.active)) || {};
-        const schedule = sortScheduleByDate(activeSeason.schedule);
+        const season = (team.seasons.length > 0 && team.seasons.find(s => s.active)) || {};
+        const schedule = sortScheduleByDate(season.schedule);
+
+        // TODO: Not accurate to assume first is next game.
+        // First item might be last weeks game, and nextGame should be based on todays date.
+        const nextGame = schedule[0];
 
         this.setState({
           team: team,
-          schedule: schedule  
+          schedule: schedule,
+          metadata: {
+            teamId: teamId,
+            seasonId: season.id,
+            scheduleId: nextGame.id
+          }
         });
 
       }).catch(err => {
@@ -46,7 +56,7 @@ class App extends Component {
           <Route exact path="/" component={Landing}/> 
           <Route exact={true} path='/:team_id' render={() => (
             <div className='container'>
-              <Home schedule={this.state.schedule} />
+              <Home metadata={this.state.metadata} schedule={this.state.schedule} />
               <Footer teamId={this.state.team.id} />
             </div>
           )}/>

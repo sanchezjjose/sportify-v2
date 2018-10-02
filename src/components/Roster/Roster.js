@@ -15,8 +15,6 @@ class Roster extends Component {
   }
 
   handleOnKeyDown(e) {
-    // e.preventDefault();
-
     if (e.keyCode === 13) {
       const playerName = e.target.value;
 
@@ -24,9 +22,12 @@ class Roster extends Component {
         players: prevState.players.concat(playerName)
       }));
 
-      // TODO: persist data here...
-      const teamId = window.location.pathname.split('/')[1];
-      addPlayer(teamId, playerName);
+      addPlayer(
+        this.props.metadata.teamId,
+        this.props.metadata.seasonId - 1,
+        this.props.metadata.scheduleId - 1,
+        playerName
+      );
 
       e.target.value = '';
     }

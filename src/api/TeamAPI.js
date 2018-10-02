@@ -39,25 +39,21 @@ const getTeam = (id) => {
   });
 };
 
-const addPlayer = (id, player) => {
+const addPlayer = (teamId, seasonId, scheduleId, player) => {
   console.log(`Adding ${player} to game...`);
 
   return new Promise((resolve, reject) => {
     const params = {
       TableName: 'Teams',
       Key: {
-        'id': id
+        'id': teamId
       },
-      UpdateExpression: "SET seasons[0].schedule[3].#p = list_append(seasons[0].schedule[3].#p, :new_player)",
+      UpdateExpression: `SET seasons[${seasonId}].schedule[${scheduleId}].#p = list_append(seasons[${seasonId}].schedule[${scheduleId}].#p, :new_player)`,
       ExpressionAttributeNames: {
-        // "#t": "type",
         "#p": "players"
       },
       ExpressionAttributeValues: {
           ":new_player": [ player ]
-          // "#active": 5.5,
-          // ":sch": "schedule",
-          // ":p": ["Larry", "Moe", "Curly"]
       },
       ReturnValues:"ALL_NEW"
     };
@@ -69,9 +65,10 @@ const addPlayer = (id, player) => {
 
       } else {
         const teams = JSON.parse(JSON.stringify(data, null, 2));
+        const team = (teams && teams.Item) || {};
+
         console.log(teams);
 
-        const team = (teams && teams.Item) || {};
         resolve(team);
       }
     })
