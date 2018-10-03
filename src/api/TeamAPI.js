@@ -8,7 +8,7 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-// ======= AWS ======= \\
+// ======= AWS DynamoDB ======= \\
 
 const getTeam = (id) => {
   return new Promise((resolve, reject) => {
