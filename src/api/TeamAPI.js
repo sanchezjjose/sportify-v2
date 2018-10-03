@@ -39,7 +39,7 @@ const getTeam = (id) => {
   });
 };
 
-const addPlayer = (teamId, seasonId, scheduleId, player) => {
+const addPlayer = (teamId, seasonId, gameId, player) => {
   console.log(`Adding ${player} to game...`);
 
   return new Promise((resolve, reject) => {
@@ -48,7 +48,7 @@ const addPlayer = (teamId, seasonId, scheduleId, player) => {
       Key: {
         'id': teamId
       },
-      UpdateExpression: `SET seasons[${seasonId}].schedule[${scheduleId}].#p = list_append(seasons[${seasonId}].schedule[${scheduleId}].#p, :new_player)`,
+      UpdateExpression: `SET seasons[${seasonId}].schedule[${gameId}].#p = list_append(seasons[${seasonId}].schedule[${gameId}].#p, :new_player)`,
       ExpressionAttributeNames: {
         "#p": "players"
       },
@@ -91,4 +91,8 @@ const sortScheduleByDate = (schedule) => {
   return schedule.sort(compare) || [];
 };
 
-export { getTeam, addPlayer, removePlayer, sortScheduleByDate };
+const getNextGame = (orderedSchedule) => {
+  return orderedSchedule.find(game => new Date() < new Date(game.date));
+};
+
+export { getTeam, addPlayer, removePlayer, sortScheduleByDate, getNextGame };

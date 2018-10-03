@@ -10,7 +10,7 @@ import './Home.css';
 class Home extends Component {
 
   render () {
-    const nextGame = this.props.schedule[0] || {};
+    const nextGame = this.props.nextGame;
     const players = nextGame.players || [];
 
     return (
