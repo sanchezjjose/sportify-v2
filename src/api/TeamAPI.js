@@ -48,9 +48,12 @@ const addPlayer = (teamId, seasonId, gameId, player) => {
       Key: {
         'id': teamId
       },
-      UpdateExpression: `SET seasons[${seasonId}].schedule[${gameId}].#p = list_append(seasons[${seasonId}].schedule[${gameId}].#p, :new_player)`,
+      UpdateExpression: `SET seasons[${seasonId}]`,
+      // UpdateExpression: `SET seasons[${seasonId}].schedule[${gameId}].#p = list_append(seasons[${seasonId}].schedule[${gameId}].#p, :new_player)`,
       ExpressionAttributeNames: {
-        "#p": "players"
+        "#p": "players",
+        "#s": "season",
+        "#g": "game"
       },
       ExpressionAttributeValues: {
           ":new_player": [ player ]
@@ -59,6 +62,8 @@ const addPlayer = (teamId, seasonId, gameId, player) => {
     };
 
     docClient.update(params, (err, data) => {
+debugger;
+
       if (err) {
         console.error('Unable to add item. Error JSON:', JSON.stringify(err, null, 2));
         reject(err)

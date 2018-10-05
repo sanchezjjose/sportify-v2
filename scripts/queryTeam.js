@@ -1,22 +1,22 @@
 var AWS = require("aws-sdk");
 
 AWS.config.update({
-  region: "us-east-2",
+  region: "us-east-1",
   // endpoint: "http://localhost:8000"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-console.log("Querying for teams by name and date");
-
 var params = {
     TableName : "Teams",
-    KeyConditionExpression: "#yr = :yyyy",
-    ExpressionAttributeNames:{
-        "#yr": "year"
-    },
+    KeyConditionExpression: "id = :id",
+    FilterExpression: "seasons[0].active IN (:active)",
+    // ExpressionAttributeNames: {
+    //     "#teamId": "id"
+    // },
     ExpressionAttributeValues: {
-        ":yyyy": 1985
+        ":id": "murry-hill-gang",
+        ":active": true,
     }
 };
 
@@ -25,8 +25,11 @@ docClient.query(params, function(err, data) {
         console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
     } else {
         console.log("Query succeeded.");
+        console.log(data);
+
         data.Items.forEach(function(item) {
-            console.log(" -", item.seasons + ": " + item.name);
+            console.log(item.seasons.length);
+            console.log(item.seasons);
         });
     }
 });
