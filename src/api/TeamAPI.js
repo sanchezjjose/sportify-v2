@@ -62,8 +62,6 @@ const addPlayer = (teamId, seasonId, gameId, player) => {
     };
 
     docClient.update(params, (err, data) => {
-debugger;
-
       if (err) {
         console.error('Unable to add item. Error JSON:', JSON.stringify(err, null, 2));
         reject(err)

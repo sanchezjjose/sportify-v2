@@ -1,13 +1,11 @@
-[ {
-	"id": "murry-hill-gang",
+{
+	"id": "murry-hill-gang-2",
 	"name": "Murry Hill Gang",
-	"seasons": [
-		{	
+	"seasons": [{
 			"id": "1",
 			"title": "Fall 2018",
 			"active": true,
-			"schedule": [
-				{
+			"schedule": [{
 					"id": "290",
 					"type": "Pickup Game",
 					"date": "October 10, 2018 7:00",
@@ -71,26 +69,24 @@
 			"id": "2",
 			"title": "Winter 2019",
 			"active": false,
-			"schedule": [
-				{
-					"id": "1",
-					"type": "Pickup Game",
-					"date": "January 25, 2019 7:00",
-					"location": "Murry Bergtraum High School",
-					"address": "411 Pearl St, New York, NY 10038",
-					"players": [
-						"Max Moise",
-						"Jose Sanchez",
-						"Edwin",
-						"Chris",
-						"Fan Feng",
-						"Hao Tan",
-						"Ernest Lindain",
-						"Dave",
-						"William Lin"
-					]
-				}
-			]
+			"schedule": [{
+				"id": "1",
+				"type": "Pickup Game",
+				"date": "January 25, 2019 7:00",
+				"location": "Murry Bergtraum High School",
+				"address": "411 Pearl St, New York, NY 10038",
+				"players": [
+					"Max Moise",
+					"Jose Sanchez",
+					"Edwin",
+					"Chris",
+					"Fan Feng",
+					"Hao Tan",
+					"Ernest Lindain",
+					"Dave",
+					"William Lin"
+				]
+			}]
 		}
 	]
-} ]
+}
