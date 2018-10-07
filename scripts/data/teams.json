@@ -1,26 +1,12 @@
 {
-	"id": "murry-hill-gang-2",
+	"id": "murry-hill-gang",
 	"name": "Murry Hill Gang",
-	"seasons": [{
-			"id": "1",
+	"seasons": {
+		"1": {
 			"title": "Fall 2018",
 			"active": true,
-			"schedule": [{
-					"id": "290",
-					"type": "Pickup Game",
-					"date": "October 10, 2018 7:00",
-					"location": "Murry Bergtraum High School",
-					"address": "411 Pearl St, New York, NY 10038",
-					"players": [
-						"Fan Feng",
-						"Hao Tan",
-						"Ernest Lindain",
-						"Dave",
-						"William Lin"
-					]
-				},
-				{
-					"id": "653",
+			"schedule": {
+				"1": {
 					"type": "Pickup Game",
 					"date": "October 1, 2018 7:00",
 					"location": "Murry Bergtraum High School",
@@ -37,8 +23,20 @@
 						"William Lin"
 					]
 				},
-				{
-					"id": "3",
+				"9": {
+					"type": "Pickup Game",
+					"date": "October 10, 2018 7:00",
+					"location": "Murry Bergtraum High School",
+					"address": "411 Pearl St, New York, NY 10038",
+					"players": [
+						"Fan Feng",
+						"Hao Tan",
+						"Ernest Lindain",
+						"Dave",
+						"William Lin"
+					]
+				},
+				"13": {
 					"type": "Pickup Game",
 					"date": "October 17, 2018 7:00",
 					"location": "Murry Bergtraum High School",
@@ -49,44 +47,31 @@
 						"Edwin",
 						"Chris"
 					]
-				},
-				{
-					"id": "4",
+				}
+			}
+		},
+		"2": {
+			"title": "Winter 2019",
+			"active": false,
+			"schedule": {
+				"1": {
 					"type": "Pickup Game",
-					"date": "November 7, 2018 7:00",
+					"date": "January 25, 2019 7:00",
 					"location": "Murry Bergtraum High School",
 					"address": "411 Pearl St, New York, NY 10038",
 					"players": [
 						"Max Moise",
 						"Jose Sanchez",
 						"Edwin",
-						"Chris"
+						"Chris",
+						"Fan Feng",
+						"Hao Tan",
+						"Ernest Lindain",
+						"Dave",
+						"William Lin"
 					]
 				}
-			]
-		},
-		{
-			"id": "2",
-			"title": "Winter 2019",
-			"active": false,
-			"schedule": [{
-				"id": "1",
-				"type": "Pickup Game",
-				"date": "January 25, 2019 7:00",
-				"location": "Murry Bergtraum High School",
-				"address": "411 Pearl St, New York, NY 10038",
-				"players": [
-					"Max Moise",
-					"Jose Sanchez",
-					"Edwin",
-					"Chris",
-					"Fan Feng",
-					"Hao Tan",
-					"Ernest Lindain",
-					"Dave",
-					"William Lin"
-				]
-			}]
+			}
 		}
-	]
+	}
 }
