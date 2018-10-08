@@ -27,13 +27,18 @@ class App extends Component {
 
     if (teamId.length > 0) {
       getTeam(teamId).then(team => {
-        const season = (team.seasons.length > 0 && team.seasons.find(s => s.active)) || {};
-        const schedule = sortScheduleByDate(season.schedule);
-        const nextGame = getNextGame(schedule);
+        const season = (
+          Object.keys(team.seasons).length > 0 && 
+          Object.entries(team.seasons).find(([key, value]) => team.seasons[key].active)[1]
+        ) || {};
+
+        const schedule = Object.entries(season.schedule).map(([key, value]) => value);
+        const orderedSchedule = sortScheduleByDate(schedule);
+        const nextGame = getNextGame(orderedSchedule);
 
         this.setState({
           team: team,
-          schedule: schedule,
+          schedule: orderedSchedule,
           nextGame: nextGame,
           metadata: {
             teamId: teamId,

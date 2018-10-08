@@ -24,8 +24,8 @@ class Roster extends Component {
 
       addPlayer(
         this.props.metadata.teamId,
-        this.props.metadata.seasonId - 1,
-        this.props.metadata.gameId - 1,
+        this.props.metadata.seasonId,
+        this.props.metadata.gameId,
         playerName
       );
 

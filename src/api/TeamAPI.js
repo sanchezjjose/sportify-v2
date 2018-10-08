@@ -39,8 +39,8 @@ const getTeam = (id) => {
   });
 };
 
-const addPlayer = (teamId, seasonId, gameId, player) => {
-  console.log(`Adding ${player} to game...`);
+const addPlayer = (teamId, seasonId, gameId, playerName) => {
+  console.log(`Adding ${playerName} to game...`);
 
   return new Promise((resolve, reject) => {
     const params = {
@@ -48,15 +48,14 @@ const addPlayer = (teamId, seasonId, gameId, player) => {
       Key: {
         'id': teamId
       },
-      UpdateExpression: `SET seasons[${seasonId}]`,
-      // UpdateExpression: `SET seasons[${seasonId}].schedule[${gameId}].#p = list_append(seasons[${seasonId}].schedule[${gameId}].#p, :new_player)`,
+      UpdateExpression: `SET seasons.#s.schedule.#g.#p = list_append(seasons.#s.schedule.#g.#p, :new_player)`,
       ExpressionAttributeNames: {
         "#p": "players",
-        "#s": "season",
-        "#g": "game"
+        "#s": seasonId,
+        "#g": gameId
       },
       ExpressionAttributeValues: {
-          ":new_player": [ player ]
+          ":new_player": [ playerName ]
       },
       ReturnValues:"ALL_NEW"
     };
@@ -69,8 +68,6 @@ const addPlayer = (teamId, seasonId, gameId, player) => {
       } else {
         const teams = JSON.parse(JSON.stringify(data, null, 2));
         const team = (teams && teams.Item) || {};
-
-        console.log(teams);
 
         resolve(team);
       }

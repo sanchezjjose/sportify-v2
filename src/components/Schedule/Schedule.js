@@ -12,7 +12,7 @@ const Schedule = ({ schedule }) => {
         <div className='content'>
           {schedule.map(game => {
             return (
-              <div key={game.date} className='game-details-wrapper'>
+              <div key={game.id} className='game-details-wrapper'>
                 <div className='game-details'>
                   <div className='game-date'>{game.date}</div>
                   <div className='game-location-name'>{game.location}</div>
