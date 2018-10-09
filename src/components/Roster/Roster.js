@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Roster.css';
-import { addPlayer } from '../../api/TeamAPI';
+import * as TeamAPI from '../../api/TeamAPI';
 
 class Roster extends Component {
 
@@ -22,7 +22,7 @@ class Roster extends Component {
         players: prevState.players.concat(playerName)
       }));
 
-      addPlayer(
+      TeamAPI.addPlayer(
         this.props.metadata.teamId,
         this.props.metadata.seasonId,
         this.props.metadata.gameId,
@@ -41,9 +41,11 @@ class Roster extends Component {
         <div className='rsvp-form'>
           <input onKeyDown={this.handleOnKeyDown} placeholder='Enter Player Name' type='text' />
         </div>
-        {this.state.players.map (name => {
-          return <div key={name} className='roster-rsvp-in'>{name}</div>;
-        })}
+        <div className='roster-rsvp-in-container'>
+          {this.state.players.map (name => {
+            return <div key={name} className='roster-rsvp-in'>{name}</div>;
+          })}
+        </div>
       </div>
     );
   }

@@ -8,8 +8,6 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-// ======= AWS DynamoDB ======= \\
-
 const getTeam = (id) => {
   return new Promise((resolve, reject) => {
     const params = {
@@ -79,20 +77,4 @@ const removePlayer = (id, playerName) => {
   console.log(`Removing ${playerName} from game...`);
 };
 
-// ======= UTILS ======= \\
-
-const sortScheduleByDate = (schedule) => {
-  const compare = (a, b) => {
-    if (new Date(a.date) < new Date(b.date)) return -1;
-    if (new Date(a.date) > new Date(b.date)) return 1;
-    return 0;
-  }
-
-  return schedule.sort(compare) || [];
-};
-
-const getNextGame = (orderedSchedule) => {
-  return orderedSchedule.find(game => new Date() < new Date(game.date));
-};
-
-export { getTeam, addPlayer, removePlayer, sortScheduleByDate, getNextGame };
+export { getTeam, addPlayer, removePlayer };

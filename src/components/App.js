@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
-import { getTeam, sortScheduleByDate, getNextGame } from '../api/TeamAPI';
+import * as TeamAPI from '../api/TeamAPI';
+import * as Util from '../lib/Util';
+
 import Landing from './Landing/Landing';
 import Home from './Home/Home';
 import Schedule from './Schedule/Schedule';
@@ -26,15 +28,15 @@ class App extends Component {
     const teamId = window.location.pathname.split('/')[1];
 
     if (teamId.length > 0) {
-      getTeam(teamId).then(team => {
+      TeamAPI.getTeam(teamId).then(team => {
         const season = (
           Object.keys(team.seasons).length > 0 && 
           Object.entries(team.seasons).find(([key, value]) => team.seasons[key].active)[1]
         ) || {};
 
         const schedule = Object.entries(season.schedule).map(([key, value]) => value);
-        const orderedSchedule = sortScheduleByDate(schedule);
-        const nextGame = getNextGame(orderedSchedule);
+        const orderedSchedule = Util.sortByDate(schedule);
+        const nextGame = Util.getNextGame(orderedSchedule);
 
         this.setState({
           team: team,
