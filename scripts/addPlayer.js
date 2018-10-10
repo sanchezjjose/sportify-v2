@@ -10,7 +10,7 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 const teamId = 'murry-hill-gang';
 const seasonId = '1';
 const gameId = '9';
-const playerName = 'Weezy';
+const playerName = 'Drizzy';
 
 const params = {
   TableName: 'Teams',
@@ -24,9 +24,7 @@ const params = {
     "#g": gameId
   },
   ExpressionAttributeValues: {
-      ":new_player": [ playerName ],
-      // ":seasonId": seasonId,
-      // ":gameId": gameId
+      ":new_player": [ playerName ]
   },
   ReturnValues:"ALL_NEW"
 };
