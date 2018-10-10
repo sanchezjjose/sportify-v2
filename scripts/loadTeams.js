@@ -15,18 +15,18 @@ var team = JSON.parse(fs.readFileSync('scripts/data/teams.json', 'utf8'));
 console.log(team);
 
 var params = {
-    TableName: 'Teams',
-    Item: {
-        'id':  team.id,
-        'name': team.name,
-        'seasons':  team.seasons
-    }
+  TableName: 'Teams',
+  Item: {
+    'id':  team.id,
+    'name': team.name,
+    'seasons':  team.seasons
+  }
 };
 
 docClient.put(params, function(err, data) {
-    if (err) {
-        console.error('Unable to add team', team.id, '. Error JSON:', JSON.stringify(err, null, 2));
-    } else {
-        console.log('PutItem succeeded:', team.id);
-    }
+  if (err) {
+    console.error('Unable to add team', team.id, '. Error JSON:', JSON.stringify(err, null, 2));
+  } else {
+    console.log('PutItem succeeded:', team.id);
+  }
 });

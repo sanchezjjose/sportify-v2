@@ -13,29 +13,29 @@ const gameId = '9';
 const newPlayers = [ 'Dave', 'Jose' ];
 
 const params = {
-    TableName: 'Teams',
-    Key: {
-      'id': teamId
-    },
-    UpdateExpression: `SET seasons.#s.schedule.#g.#p = :players`,
-    ExpressionAttributeNames: {
-      "#p": "players",
-      "#s": seasonId,
-      "#g": gameId
-    },
-    ExpressionAttributeValues: {
-        ":players": newPlayers,
-        // ":seasonId": seasonId,
-        // ":gameId": gameId
-    },
-    ReturnValues:"ALL_NEW"
-  };
+  TableName: 'Teams',
+  Key: {
+    'id': teamId
+  },
+  UpdateExpression: `SET seasons.#s.schedule.#g.#p = :players`,
+  ExpressionAttributeNames: {
+    "#p": "players",
+    "#s": seasonId,
+    "#g": gameId
+  },
+  ExpressionAttributeValues: {
+      ":players": newPlayers,
+      // ":seasonId": seasonId,
+      // ":gameId": gameId
+  },
+  ReturnValues:"ALL_NEW"
+};
 
-  docClient.update(params, (err, data) => {
-    if (err) {
-      console.error('Unable to add item. Error JSON:', JSON.stringify(err, null, 2));
+docClient.update(params, (err, data) => {
+  if (err) {
+    console.error('Unable to add item. Error JSON:', JSON.stringify(err, null, 2));
 
-    } else {
-      console.log(data);
-    }
+  } else {
+    console.log(data);
+  }
 });
