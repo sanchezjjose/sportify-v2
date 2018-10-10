@@ -59,7 +59,7 @@ const updateGame = (teamId, seasonId, game) => {
 
     docClient.update(params, (err, data) => {
       if (err) {
-        console.error('Unable to add game. Error JSON:', JSON.stringify(err, null, 2));
+        console.error('Unable to update game. Error JSON:', JSON.stringify(err, null, 2));
         reject(err);
 
       } else {
@@ -95,7 +95,7 @@ const addPlayer = (teamId, seasonId, gameId, playerName) => {
 
     docClient.update(params, (err, data) => {
       if (err) {
-        console.error('Unable to add item. Error JSON:', JSON.stringify(err, null, 2));
+        console.error('Unable to add player. Error JSON:', JSON.stringify(err, null, 2));
         reject(err)
 
       } else {
