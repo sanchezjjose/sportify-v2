@@ -8,6 +8,7 @@ class Roster extends Component {
   constructor(props) {
     super(props);
     this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
+    this.removePlayer = this.removePlayer.bind(this);
 
     this.state = {
       players: props.players 
@@ -33,6 +34,11 @@ class Roster extends Component {
     }
   }
 
+  removePlayer(e) {
+    console.log('Removing player...');
+    console.log(this.props);
+  }
+
   render() {
     return (
       <div className='Roster'>
@@ -43,7 +49,12 @@ class Roster extends Component {
         </div>
         <div className='roster-rsvp-in-container'>
           {this.state.players.map (name => {
-            return <div key={name} className='roster-rsvp-in'>{name}</div>;
+            return (
+              <div key={name} className='roster-rsvp-in'>
+                <span onClick={this.removePlayer} className='roster-rsvp-in-action'>[x]</span>
+                <div className='roster-rsvp-in-name'>{name}</div>
+              </div>
+            );
           })}
         </div>
       </div>

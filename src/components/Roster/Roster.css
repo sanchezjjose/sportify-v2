@@ -17,10 +17,29 @@
   margin: 1px 0 12px 0;
 }
 
+.roster-rsvp-in-container {
+  display: grid;
+  justify-content: center;
+}
+
 .Roster .roster-rsvp-in {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
   color: #4A4A4A;
   font-size: 16px;
   font-weight: 300;
+}
+
+span.roster-rsvp-in-action {
+  align-content: center;
+  display: grid;
+  text-align: right;
+  font-size: 12px;
+}
+
+.roster-rsvp-in-name {
+  text-align: left;
 }
 
 .Roster .rsvp-form {
