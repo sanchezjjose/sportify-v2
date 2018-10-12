@@ -17,26 +17,36 @@ class Roster extends Component {
 
   handleOnKeyDown(e) {
     if (e.keyCode === 13) {
-      const playerName = e.target.value;
+      const player = e.target.value;
 
       this.setState(prevState => ({
-        players: prevState.players.concat(playerName)
+        players: prevState.players.concat(player)
       }));
 
       TeamAPI.addPlayer(
         this.props.metadata.teamId,
         this.props.metadata.seasonId,
         this.props.metadata.gameId,
-        playerName
+        player
       );
 
       e.target.value = '';
     }
   }
 
-  removePlayer(e) {
-    console.log('Removing player...');
-    console.log(this.props);
+  removePlayer(e, player) {
+    const newPlayers = this.state.players.filter(p => p !== player);
+
+    this.setState({
+      players: newPlayers
+    });
+
+    TeamAPI.removePlayer(
+        this.props.metadata.teamId,
+        this.props.metadata.seasonId,
+        this.props.metadata.gameId,
+        newPlayers
+    );
   }
 
   render() {
@@ -51,7 +61,7 @@ class Roster extends Component {
           {this.state.players.map (name => {
             return (
               <div key={name} className='roster-rsvp-in'>
-                <span onClick={this.removePlayer} className='roster-rsvp-in-action'>[x]</span>
+                <span onClick={(e) => this.removePlayer(e, name)} className='roster-rsvp-in-action'>[x]</span>
                 <div className='roster-rsvp-in-name'>{name}</div>
               </div>
             );

@@ -22,9 +22,7 @@ class Home extends Component {
             <div className='next-game-details-wrapper'>
               <Details key={nextGame.date} game={nextGame} />
               <div className='line-divider'></div>
-              {players.length > 0 &&
-                <Roster metadata={this.props.metadata} players={players} />
-              }
+              <Roster metadata={this.props.metadata} players={players} />
             </div>
           </div>
         </div>
