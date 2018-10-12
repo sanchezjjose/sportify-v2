@@ -18,10 +18,14 @@ class App extends Component {
 
     this.handleRosterChange = this.handleRosterChange.bind(this);
 
+    const nextGame = {};
+    nextGame.players = [];
+
     this.state = {
       team: {},
       schedule: [],
-      nextGame: {},
+      nextGame: nextGame,
+      // players: [],
       metadata: {}
     };
   }
@@ -44,7 +48,7 @@ class App extends Component {
           team: team,
           schedule: orderedSchedule,
           nextGame: nextGame,
-          players: nextGame.players,
+          // players: nextGame.players,
           metadata: {
             teamId: teamId,
             seasonId: season.id,
@@ -58,9 +62,15 @@ class App extends Component {
     }
   }
 
-  handleRosterChange(players) {
+  // handleRosterChange(players) {
+  //   this.setState({
+  //     players: players
+  //   });
+  // }
+
+  handleRosterChange(updatedGame) {
     this.setState({
-      players: players
+      nextGame: updatedGame
     });
   }
 
@@ -71,7 +81,8 @@ class App extends Component {
           <Route exact path="/" component={Landing}/> 
           <Route exact={true} path='/:team_id' render={() => (
             <div className='container'>
-              <Home metadata={this.state.metadata} nextGame={this.state.nextGame} players={this.state.players} handleRosterChange={this.handleRosterChange} />
+              {/* <Home metadata={this.state.metadata} nextGame={this.state.nextGame} players={this.state.players} handleRosterChange={this.handleRosterChange} /> */}
+              <Home metadata={this.state.metadata} nextGame={this.state.nextGame} handleRosterChange={this.handleRosterChange} />
               <Footer teamId={this.state.team.id} />
             </div>
           )}/>
