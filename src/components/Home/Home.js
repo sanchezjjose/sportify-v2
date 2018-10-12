@@ -11,7 +11,7 @@ class Home extends Component {
 
   render () {
     const nextGame = this.props.nextGame;
-    const players = nextGame.players || [];
+    const players = this.props.players || [];
 
     return (
       <div className='Home'>
@@ -20,9 +20,12 @@ class Home extends Component {
         <div className='content-wrapper'>
           <div className='content'>
             <div className='next-game-details-wrapper'>
-              <Details key={nextGame.date} game={nextGame} />
+              <Details game={nextGame} />
               <div className='line-divider'></div>
-              <Roster metadata={this.props.metadata} players={players} />
+              {/* <Roster metadata={this.props.metadata} players={players} handleRosterChange={this.props.handleRosterChange} /> */}
+              {/* {players.length > 0 && */}
+                <Roster metadata={this.props.metadata} players={players} handleRosterChange={this.props.handleRosterChange} />
+              {/* } */}
             </div>
           </div>
         </div>

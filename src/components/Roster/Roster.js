@@ -19,9 +19,12 @@ class Roster extends Component {
     if (e.keyCode === 13) {
       const player = e.target.value;
 
-      this.setState(prevState => ({
-        players: prevState.players.concat(player)
-      }));
+      this.setState(prevState => {
+        const updatedRoster = prevState.players.concat(player);
+        this.props.handleRosterChange(updatedRoster);
+
+        return { players: updatedRoster };
+      });
 
       TeamAPI.addPlayer(
         this.props.metadata.teamId,
@@ -40,6 +43,8 @@ class Roster extends Component {
     this.setState({
       players: newPlayers
     });
+
+    this.props.handleRosterChange(this.state.players);
 
     TeamAPI.removePlayer(
         this.props.metadata.teamId,

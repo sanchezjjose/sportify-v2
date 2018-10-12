@@ -16,6 +16,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.handleRosterChange = this.handleRosterChange.bind(this);
+
     this.state = {
       team: {},
       schedule: [],
@@ -42,6 +44,7 @@ class App extends Component {
           team: team,
           schedule: orderedSchedule,
           nextGame: nextGame,
+          players: nextGame.players,
           metadata: {
             teamId: teamId,
             seasonId: season.id,
@@ -55,6 +58,12 @@ class App extends Component {
     }
   }
 
+  handleRosterChange(players) {
+    this.setState({
+      players: players
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -62,7 +71,7 @@ class App extends Component {
           <Route exact path="/" component={Landing}/> 
           <Route exact={true} path='/:team_id' render={() => (
             <div className='container'>
-              <Home metadata={this.state.metadata} nextGame={this.state.nextGame} />
+              <Home metadata={this.state.metadata} nextGame={this.state.nextGame} players={this.state.players} handleRosterChange={this.handleRosterChange} />
               <Footer teamId={this.state.team.id} />
             </div>
           )}/>
