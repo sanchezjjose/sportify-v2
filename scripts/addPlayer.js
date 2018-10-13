@@ -19,7 +19,7 @@ const params = {
   },
   UpdateExpression: `SET seasons.#s.schedule.#g.#p = list_append(seasons.#s.schedule.#g.#p, :new_player)`,
   ExpressionAttributeNames: {
-    "#p": "players",
+    "#p": "roster",
     "#s": seasonId,
     "#g": gameId
   },

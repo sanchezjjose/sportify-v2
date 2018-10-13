@@ -10,21 +10,21 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 const teamId = 'murry-hill-gang';
 const seasonId = '1';
 const gameId = '9';
-const newPlayers = [ 'Dave', 'Jose' ];
+const newroster = [ 'Dave', 'Jose' ];
 
 const params = {
   TableName: 'Teams',
   Key: {
     'id': teamId
   },
-  UpdateExpression: `SET seasons.#s.schedule.#g.#p = :players`,
+  UpdateExpression: `SET seasons.#s.schedule.#g.#p = :roster`,
   ExpressionAttributeNames: {
-    "#p": "players",
+    "#p": "roster",
     "#s": seasonId,
     "#g": gameId
   },
   ExpressionAttributeValues: {
-      ":players": newPlayers,
+      ":roster": newroster,
       // ":seasonId": seasonId,
       // ":gameId": gameId
   },

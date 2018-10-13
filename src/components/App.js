@@ -60,7 +60,7 @@ class App extends Component {
   handleRosterChange(newRoster) {
     this.setState((prevState) => {
       const nextGameClone = { ...prevState.nextGame };
-      nextGameClone.players = newRoster;
+      nextGameClone.roster = newRoster;
 
       return {
         nextGame: nextGameClone

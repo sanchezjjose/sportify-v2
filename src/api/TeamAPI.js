@@ -83,7 +83,7 @@ const addPlayer = (teamId, seasonId, gameId, playerName) => {
       },
       UpdateExpression: `SET seasons.#s.schedule.#g.#p = list_append(seasons.#s.schedule.#g.#p, :new_player)`,
       ExpressionAttributeNames: {
-        "#p": "players",
+        "#p": "roster",
         "#s": seasonId,
         "#g": gameId
       },
@@ -108,7 +108,7 @@ const addPlayer = (teamId, seasonId, gameId, playerName) => {
   });
 };
 
-const removePlayer = (teamId, seasonId, gameId, updatedPlayers) => {
+const removePlayer = (teamId, seasonId, gameId, updatedroster) => {
   console.log(`Removing player from game...`);
 
   return new Promise((resolve, reject) => {
@@ -117,14 +117,14 @@ const removePlayer = (teamId, seasonId, gameId, updatedPlayers) => {
       Key: {
         'id': teamId
       },
-      UpdateExpression: `SET seasons.#s.schedule.#g.#p = :players`,
+      UpdateExpression: `SET seasons.#s.schedule.#g.#p = :roster`,
       ExpressionAttributeNames: {
-        "#p": "players",
+        "#p": "roster",
         "#s": seasonId,
         "#g": gameId
       },
       ExpressionAttributeValues: {
-          ":players": updatedPlayers
+          ":roster": updatedroster
       },
       ReturnValues:"ALL_NEW"
     };

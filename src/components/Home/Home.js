@@ -18,7 +18,7 @@ class Home extends Component {
             <div className='next-game-details-wrapper'>
               <Details game={this.props.nextGame} />
               <div className='line-divider'></div>
-              <Roster metadata={this.props.metadata} roster={this.props.nextGame.players} handleRosterChange={this.props.handleRosterChange} />
+              <Roster metadata={this.props.metadata} roster={this.props.nextGame.roster} handleRosterChange={this.props.handleRosterChange} />
             </div>
           </div>
         </div>

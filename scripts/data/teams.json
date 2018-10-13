@@ -13,7 +13,7 @@
 					"date": "October 1, 2018 7:00",
 					"location": "Murry Bergtraum High School",
 					"address": "411 Pearl St, New York, NY 10038",
-					"players": [
+					"roster": [
 						"Max Moise",
 						"Jose Sanchez",
 						"Edwin",
@@ -31,7 +31,7 @@
 					"date": "October 10, 2018 7:00",
 					"location": "Murry Bergtraum High School",
 					"address": "411 Pearl St, New York, NY 10038",
-					"players": [
+					"roster": [
 						"Fan Feng",
 						"Hao Tan",
 						"Ernest Lindain",
@@ -45,7 +45,7 @@
 					"date": "October 17, 2018 7:00",
 					"location": "Murry Bergtraum High School",
 					"address": "411 Pearl St, New York, NY 10038",
-					"players": [
+					"roster": [
 						"Max Moise",
 						"Jose Sanchez",
 						"Edwin",
@@ -65,7 +65,7 @@
 					"date": "January 25, 2019 7:00",
 					"location": "Murry Bergtraum High School",
 					"address": "411 Pearl St, New York, NY 10038",
-					"players": [
+					"roster": [
 						"Max Moise",
 						"Jose Sanchez",
 						"Edwin",

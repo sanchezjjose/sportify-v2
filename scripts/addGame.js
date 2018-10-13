@@ -15,7 +15,7 @@ const game = {
   "date": "October 15, 2018 7:00",
   "location": "Murry Bergtraum High School",
   "address": "411 Pearl St, New York, NY 10038",
-  "players": []
+  "roster": []
 };
 
 const params = {
