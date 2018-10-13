@@ -44,6 +44,8 @@ class App extends Component {
           team: team,
           schedule: orderedSchedule,
           nextGame: nextGame,
+
+          // TODO: Add metadata to ContextAPI if makes sense.
           metadata: {
             teamId: teamId,
             seasonId: season.id,
