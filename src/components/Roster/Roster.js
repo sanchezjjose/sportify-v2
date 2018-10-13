@@ -7,26 +7,17 @@ class Roster extends Component {
 
   constructor(props) {
     super(props);
-    this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
-    this.removePlayer = this.removePlayer.bind(this);
 
-    // this.state = {
-    //   players: props.nextGame.players 
-    // };
+    this.addPlayer = this.addPlayer.bind(this);
+    this.removePlayer = this.removePlayer.bind(this);
   }
 
-  handleOnKeyDown(e) {
+  addPlayer(e) {
     if (e.keyCode === 13) {
       const player = e.target.value;
+      const updatedRoster = this.props.nextGame.players.concat(player);
 
-      // this.setState(prevState => {
-      //   const updatedRoster = prevState.players.concat(player);
-      //   this.props.handleRosterChange(updatedRoster);
-
-      //   return { players: updatedRoster };
-      // });
-
-      this.props.nextGame.players.concat(player);
+      this.props.nextGame.players = updatedRoster;
       this.props.handleRosterChange(this.props.nextGame);
 
       TeamAPI.addPlayer(
@@ -41,16 +32,8 @@ class Roster extends Component {
   }
 
   removePlayer(e, player) {
-    // const newPlayers = this.state.players.filter(p => p !== player);
-
-    // this.setState({
-    //   players: newPlayers
-    // });
-
-    // this.props.handleRosterChange(this.state.players);
-
-    const newPlayers = this.props.nextGame.players.filter(p => p !== player);
-    this.props.nextGame.players = newPlayers;
+    const updatedRoster = this.props.nextGame.players.filter(p => p !== player);
+    this.props.nextGame.players = updatedRoster;
 
     this.props.handleRosterChange(this.props.nextGame);
 
@@ -58,22 +41,22 @@ class Roster extends Component {
         this.props.metadata.teamId,
         this.props.metadata.seasonId,
         this.props.metadata.gameId,
-        newPlayers
+        updatedRoster
     );
   }
 
   render() {
+    const players = this.props.nextGame.players || [];
+
     return (
       <div className='Roster'>
         <div className='roster-title'>Roster</div>
-        {/* <div className='roster-subtitle'>{this.state.players.length} player(s) confirmed</div> */}
-        <div className='roster-subtitle'>{this.props.nextGame.players.length} player(s) confirmed</div>
+        <div className='roster-subtitle'>{players.length} player(s) confirmed</div>
         <div className='rsvp-form'>
-          <input onKeyDown={this.handleOnKeyDown} placeholder='Enter Player Name' type='text' />
+          <input onKeyDown={this.addPlayer} placeholder='Enter Player Name' type='text' />
         </div>
         <div className='roster-rsvp-in-container'>
-          {/* {this.state.players.map (name => { */}
-          {this.props.nextGame.players.map (name => {
+          {players.map (name => {
             return (
               <div key={name} className='roster-rsvp-in'>
                 <span onClick={(e) => this.removePlayer(e, name)} className='roster-rsvp-in-action'>[x]</span>

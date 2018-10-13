@@ -8,10 +8,8 @@ import Navigation from '../Navigation/Navigation';
 import './Home.css';
 
 class Home extends Component {
-
   render () {
     const nextGame = this.props.nextGame;
-    //  const players = this.props.players || [];
 
     return (
       <div className='Home'>
@@ -23,9 +21,6 @@ class Home extends Component {
               <Details game={nextGame} />
               <div className='line-divider'></div>
               <Roster metadata={this.props.metadata} nextGame={nextGame} handleRosterChange={this.props.handleRosterChange} />
-              {/* {players.length > 0 && */}
-                {/* <Roster metadata={this.props.metadata} players={players} handleRosterChange={this.props.handleRosterChange} /> */}
-              {/* } */}
             </div>
           </div>
         </div>
