@@ -14,49 +14,47 @@ class Roster extends Component {
 
   addPlayer(e) {
     if (e.keyCode === 13) {
-      const player = e.target.value;
-      const updatedRoster = this.props.nextGame.players.concat(player);
+      const name = e.target.value;
+      const newRoster = this.props.roster.concat(name);
 
-      this.props.nextGame.players = updatedRoster;
-      this.props.handleRosterChange(this.props.nextGame);
+      this.props.handleRosterChange(newRoster);
 
       TeamAPI.addPlayer(
         this.props.metadata.teamId,
         this.props.metadata.seasonId,
         this.props.metadata.gameId,
-        player
+        name
       );
 
       e.target.value = '';
     }
   }
 
-  removePlayer(e, player) {
-    const updatedRoster = this.props.nextGame.players.filter(p => p !== player);
-    this.props.nextGame.players = updatedRoster;
+  removePlayer(e, name) {
+    const newRoster = this.props.nextGame.roster.filter(n => n !== name);
 
-    this.props.handleRosterChange(this.props.nextGame);
+    this.props.handleRosterChange(newRoster);
 
     TeamAPI.removePlayer(
         this.props.metadata.teamId,
         this.props.metadata.seasonId,
         this.props.metadata.gameId,
-        updatedRoster
+        newRoster
     );
   }
 
   render() {
-    const players = this.props.nextGame.players || [];
+    const roster = this.props.roster || [];
 
     return (
       <div className='Roster'>
         <div className='roster-title'>Roster</div>
-        <div className='roster-subtitle'>{players.length} player(s) confirmed</div>
+        <div className='roster-subtitle'>{roster.length} player(s) confirmed</div>
         <div className='rsvp-form'>
           <input onKeyDown={this.addPlayer} placeholder='Enter Player Name' type='text' />
         </div>
         <div className='roster-rsvp-in-container'>
-          {players.map (name => {
+          {roster.map (name => {
             return (
               <div key={name} className='roster-rsvp-in'>
                 <span onClick={(e) => this.removePlayer(e, name)} className='roster-rsvp-in-action'>[x]</span>

@@ -9,18 +9,16 @@ import './Home.css';
 
 class Home extends Component {
   render () {
-    const nextGame = this.props.nextGame;
-
     return (
       <div className='Home'>
         <Navigation />
-        <Header title={nextGame.type} />
+        <Header title={this.props.nextGame.type} />
         <div className='content-wrapper'>
           <div className='content'>
             <div className='next-game-details-wrapper'>
-              <Details game={nextGame} />
+              <Details game={this.props.nextGame} />
               <div className='line-divider'></div>
-              <Roster metadata={this.props.metadata} nextGame={nextGame} handleRosterChange={this.props.handleRosterChange} />
+              <Roster metadata={this.props.metadata} roster={this.props.nextGame.players} handleRosterChange={this.props.handleRosterChange} />
             </div>
           </div>
         </div>
