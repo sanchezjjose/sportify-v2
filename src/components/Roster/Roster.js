@@ -31,7 +31,7 @@ class Roster extends Component {
   }
 
   removePlayer(e, name) {
-    const newRoster = this.props.nextGame.roster.filter(n => n !== name);
+    const newRoster = this.props.roster.filter(n => n !== name);
 
     this.props.handleRosterChange(newRoster);
 
