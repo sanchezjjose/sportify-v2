@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './Roster.css';
 import * as TeamAPI from '../../api/TeamAPI';
+import { TeamContext } from '../TeamContext';
 
 class Roster extends Component {
 
@@ -12,7 +13,7 @@ class Roster extends Component {
     this.removePlayer = this.removePlayer.bind(this);
   }
 
-  addPlayer(e) {
+  addPlayer(e, metadata) {
     if (e.keyCode === 13) {
       const name = e.target.value;
       const newRoster = this.props.roster.concat(name);
@@ -20,9 +21,9 @@ class Roster extends Component {
       this.props.handleRosterChange(newRoster);
 
       TeamAPI.addPlayer(
-        this.props.metadata.teamId,
-        this.props.metadata.seasonId,
-        this.props.metadata.gameId,
+        metadata.teamId,
+        metadata.seasonId,
+        metadata.gameId,
         name
       );
 
@@ -30,15 +31,15 @@ class Roster extends Component {
     }
   }
 
-  removePlayer(e, name) {
+  removePlayer(e, name, metadata) {
     const newRoster = this.props.roster.filter(n => n !== name);
 
     this.props.handleRosterChange(newRoster);
 
     TeamAPI.removePlayer(
-        this.props.metadata.teamId,
-        this.props.metadata.seasonId,
-        this.props.metadata.gameId,
+        metadata.teamId,
+        metadata.seasonId,
+        metadata.gameId,
         newRoster
     );
   }
@@ -47,23 +48,27 @@ class Roster extends Component {
     const roster = this.props.roster || [];
 
     return (
-      <div className='Roster'>
-        <div className='roster-title'>Roster</div>
-        <div className='roster-subtitle'>{roster.length} player(s) confirmed</div>
-        <div className='rsvp-form'>
-          <input onKeyDown={this.addPlayer} placeholder='Enter Player Name' type='text' />
-        </div>
-        <div className='roster-rsvp-in-container'>
-          {roster.map (name => {
-            return (
-              <div key={name} className='roster-rsvp-in'>
-                <span onClick={(e) => this.removePlayer(e, name)} className='roster-rsvp-in-action'>[x]</span>
-                <div className='roster-rsvp-in-name'>{name}</div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <TeamContext.Consumer>
+        {metadata => (
+          <div className='Roster'>
+            <div className='roster-title'>Roster</div>
+            <div className='roster-subtitle'>{roster.length} player(s) confirmed</div>
+            <div className='rsvp-form'>
+              <input onKeyDown={(e) => this.addPlayer(e, metadata)} placeholder='Enter Player Name' type='text' />
+            </div>
+            <div className='roster-rsvp-in-container'>
+              {roster.map (name => {
+                return (
+                  <div key={name} className='roster-rsvp-in'>
+                    <span onClick={(e) => this.removePlayer(e, name, metadata)} className='roster-rsvp-in-action'>[x]</span>
+                    <div className='roster-rsvp-in-name'>{name}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </TeamContext.Consumer>
     );
   }
 }
