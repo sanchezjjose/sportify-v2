@@ -3,3 +3,19 @@
   width: 100%;
   justify-items: center;
 }
+
+.Home .nav-arrow {
+  margin-top: 200px;
+}
+
+.Home .nav-arrow .md-48 {
+  font-size: 48px;
+}
+
+.Home .nav-arrow .md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.Home .prev-game-arrow {
+  padding-left: 10px;
+}
