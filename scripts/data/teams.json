@@ -10,6 +10,46 @@
 				"1": {
 					"id": "1",
 					"type": "Pickup Game",
+					"date": "October 1, 2018 7:00",
+					"location": "Murry Bergtraum High School",
+					"address": "411 Pearl St, New York, NY 10038",
+					"roster": [
+						"Max Moise",
+						"Jose Sanchez",
+						"Ernest Lindain",
+						"Dave",
+						"William Lin"
+					]
+				},
+				"2": {
+					"id": "2",
+					"type": "Pickup Game",
+					"date": "October 1, 2018 7:00",
+					"location": "Murry Bergtraum High School",
+					"address": "411 Pearl St, New York, NY 10038",
+					"roster": [
+						"Max Moise",
+						"Dave",
+						"William Lin"
+					]
+				},
+				"3": {
+					"id": "3",
+					"type": "Pickup Game",
+					"date": "October 1, 2018 7:00",
+					"location": "Murry Bergtraum High School",
+					"address": "411 Pearl St, New York, NY 10038",
+					"roster": [
+						"Max Moise",
+						"Jose Sanchez",
+						"Ernest Lindain",
+						"Dave",
+						"William Lin"
+					]
+				},
+				"6": {
+					"id": "6",
+					"type": "Pickup Game",
 					"date": "December 1, 2018 7:00",
 					"location": "Murry Bergtraum High School",
 					"address": "411 Pearl St, New York, NY 10038",

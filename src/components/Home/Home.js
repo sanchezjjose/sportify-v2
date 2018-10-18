@@ -14,7 +14,7 @@ class Home extends Component {
         <Navigation />
         <Header title={this.props.nextGame.type} />
         <div className='content-wrapper'>
-          <div className='prev-game-arrow nav-arrow'> <i className='material-icons md-dark md-inactive'>arrow_back_ios</i> </div>
+          <div className='prev-game-arrow nav-arrow'><i className='material-icons md-dark md-inactive'>arrow_back_ios</i></div>
           <div className='content'>
             <div className='next-game-details-wrapper'>
               <Details game={this.props.nextGame} />
@@ -22,7 +22,7 @@ class Home extends Component {
               <Roster roster={this.props.nextGame.roster} handleRosterChange={this.props.handleRosterChange} />
             </div>
           </div>
-          <div className='next-game-arrow nav-arrow'> <i className='material-icons'>arrow_forward_ios</i> </div>
+          <div className='next-game-arrow nav-arrow'><i className='material-icons'>arrow_forward_ios</i></div>
         </div>
       </div>
     );
