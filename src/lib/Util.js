@@ -12,4 +12,8 @@ const getNextGame = (schedule) => {
   return schedule.find(game => new Date() < new Date(game.date));
 };
 
-export { sortByDate, getNextGame };
+const getNextGameIndex = (schedule) => {
+  return schedule.findIndex(game => new Date() < new Date(game.date));
+};
+
+export { sortByDate, getNextGame, getNextGameIndex };
