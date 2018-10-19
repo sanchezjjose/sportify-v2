@@ -4,18 +4,14 @@
   justify-items: center;
 }
 
-.Home .nav-arrow {
+.Home .schedule-nav {
   margin-top: 200px;
 }
 
-.Home .nav-arrow .md-48 {
-  font-size: 48px;
-}
-
-.Home .nav-arrow .md-dark.md-inactive {
+.Home .schedule-nav.md-dark.md-inactive {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.Home .prev-game-arrow {
+.Home #prev-game-nav {
   padding-left: 10px;
 }

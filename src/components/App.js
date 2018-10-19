@@ -40,6 +40,7 @@ class App extends Component {
         const schedule = Object.entries(season.schedule).map(([key, value]) => value);
         const orderedSchedule = Util.sortByDate(schedule);
         const nextGame = Util.getNextGame(orderedSchedule);
+        const nextGameIndex = Util.getNextGameIndex(orderedSchedule);
         const metadata = {
           teamId: teamId,
           seasonId: season.id,
@@ -50,6 +51,7 @@ class App extends Component {
           team: team,
           schedule: orderedSchedule,
           nextGame: nextGame,
+          nextGameIndex: nextGameIndex,
           metadata: metadata
         });
 
@@ -84,7 +86,7 @@ class App extends Component {
             <Route exact path="/" component={Landing}/> 
             <Route exact={true} path='/:team_id' render={() => (
               <div className='container'>
-                <Home schedule={this.state.schedule} nextGame={this.state.nextGame} handleRosterChange={this.handleRosterChange} />
+                <Home schedule={this.state.schedule} nextGameIndex={this.state.nextGameIndex} handleRosterChange={this.handleRosterChange} />
                 <Footer teamId={this.state.team.id} />
               </div>
             )}/>

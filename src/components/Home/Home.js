@@ -5,40 +5,59 @@ import Details from '../Details/Details';
 import Roster from '../Roster/Roster';
 import Navigation from '../Navigation/Navigation';
 
-import * as Util from '../../lib/Util';
-
 import './Home.css';
 
 class Home extends Component {
 
   state = {
-    gameIndex: null
+    // Initial seed data
+    gameIndex: this.props.nextGameIndex
   }
 
-  handleScheduleChange = (e) => {
+  handleArrowStyles = () => {
+    if (this.props.schedule.length === this.state.gameIndex) {
+      document.getElementById('next-game-nav').classList.add('md-dark','md-inactive');
+      document.getElementById('prev-game-nav').classList.remove('md-dark', 'md-inactive');
+
+    } else if (this.state.gameIndex === 0) {
+      document.getElementById('prev-game-nav').classList.add('md-dark','md-inactive');
+      document.getElementById('next-game-nav').classList.remove('md-dark', 'md-inactive');
+
+    } else if (this.state.gameIndex > 0 && this.state.gameIndex < this.props.schedule.length) {
+      document.getElementById('next-game-nav').classList.remove('md-dark', 'md-inactive');
+      document.getElementById('prev-game-nav').classList.remove('md-dark', 'md-inactive');
+    }
+  }
+
+  handleScheduleChange = (e, currentGameIndex) => {
     e.preventDefault();
 
-    console.log(e.target.className);
-    console.log('Arrow clicked');
+    const target = e.target.id;
+    const schedule = this.props.schedule;
 
-    this.setState({
-      gameIndex: 4
-    });
+    if (target === 'next-game-nav' && schedule[currentGameIndex + 1]) {
+        this.setState({ gameIndex: currentGameIndex + 1 });
+
+    } else if (target === 'prev-game-nav' && schedule[currentGameIndex - 1]) {
+      this.setState({ gameIndex: currentGameIndex - 1 });
+    }
+
   }
 
   render () {
+    this.handleArrowStyles();
+
     const schedule = this.props.schedule;
-    const gameIndex = this.state.gameIndex != null ? this.state.gameIndex : Util.getNextGameIndex(schedule);
-    const game = gameIndex > 0 ? schedule[gameIndex] : {};
+    // const gameIndex = this.state.gameIndex != null ? this.state.gameIndex : Util.getNextGameIndex(schedule);
+    const currentGameIndex = this.state.gameIndex;
+    const game = currentGameIndex >= 0 ? schedule[currentGameIndex] : {};
 
     return (
       <div className='Home'>
         <Navigation />
           <Header title={game.type} />
           <div className='content-wrapper'>
-            <div onClick={e => this.handleScheduleChange(e)} className='prev-game-arrow nav-arrow'>
-              <i className='material-icons md-dark md-inactive'>arrow_back_ios</i>
-            </div>
+            <i onClick={e => this.handleScheduleChange(e, currentGameIndex)} id='prev-game-nav' className='schedule-nav material-icons'>arrow_back_ios</i>
             <div className='content'>
               <div className='next-game-details-wrapper'>
                 <Details game={game} />
@@ -46,9 +65,7 @@ class Home extends Component {
                 <Roster roster={game.roster} handleRosterChange={this.props.handleRosterChange} />
               </div>
             </div>
-            <div onClick={e => this.handleScheduleChange(e)} className='next-game-arrow nav-arrow'>
-              <i className='material-icons'>arrow_forward_ios</i>
-            </div>
+            <i onClick={e => this.handleScheduleChange(e, currentGameIndex)} id='next-game-nav' className='schedule-nav material-icons'>arrow_forward_ios</i>
           </div>
       </div>
     );
