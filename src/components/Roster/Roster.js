@@ -15,6 +15,8 @@ class Roster extends Component {
 
   addPlayer(e, metadata) {
     if (e.keyCode === 13) {
+      e.preventDefault();
+
       const name = e.target.value;
       const newRoster = this.props.roster.concat(name);
 
@@ -54,7 +56,9 @@ class Roster extends Component {
             <div className='roster-title'>Roster</div>
             <div className='roster-subtitle'>{roster.length} player(s) confirmed</div>
             <div className='rsvp-form'>
-              <input onKeyDown={(e) => this.addPlayer(e, metadata)} placeholder='Enter Player Name' type='text' />
+              <form>
+                <input onKeyDown={(e) => this.addPlayer(e, metadata)} placeholder='Enter Player Name' type='text' />
+              </form>
             </div>
             <div className='roster-rsvp-in-container'>
               {roster.map (name => {
