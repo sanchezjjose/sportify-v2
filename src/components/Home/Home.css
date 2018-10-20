@@ -13,5 +13,9 @@
 }
 
 .Home #prev-game-nav {
-  padding-left: 10px;
+  padding-left: 15px;
+}
+
+.Home #next-game-nav {
+  padding-right: 10px;
 }

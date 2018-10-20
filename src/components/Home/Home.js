@@ -66,7 +66,7 @@ class Home extends Component {
               <div className='next-game-details-wrapper'>
                 <Details game={game} />
                 <div className='line-divider'></div>
-                <Roster roster={game.roster} handleRosterChange={this.props.handleRosterChange} />
+                <Roster roster={game.roster} gameId={game.id} gameIndex={currentGameIndex} handleRosterChange={this.props.handleRosterChange} />
               </div>
             </div>
             <i onClick={e => this.handleScheduleChange(e, currentGameIndex)} id='next-game-nav' className='schedule-nav material-icons'>arrow_forward_ios</i>

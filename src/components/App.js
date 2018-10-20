@@ -50,7 +50,7 @@ class App extends Component {
         this.setState({
           team: team,
           schedule: orderedSchedule,
-          nextGame: nextGame,
+          // nextGame: nextGame,
           nextGameIndex: nextGameIndex,
           metadata: metadata
         });
@@ -61,19 +61,13 @@ class App extends Component {
     }
   }
 
-  handleRosterChange(newRoster) {
+  handleRosterChange(newRoster, gameIndex) {
     this.setState((prevState) => {
-
-      // TODO:
-      // BUG: Need to somehow propogate changes to the 'team' and 'schedule' state.
-      // Currently, team and schedule are out of sync because I am updating roster on clone.
-      // Both 'team' and 'schedule' state should both also reflect updated roster.
-
-      const nextGameClone = { ...prevState.nextGame };
-      nextGameClone.roster = newRoster;
+      const scheduleClone = JSON.parse(JSON.stringify(prevState.schedule));
+      scheduleClone[gameIndex].roster = newRoster;
 
       return {
-        nextGame: nextGameClone
+        schedule: scheduleClone
       }
     });
   }

@@ -18,12 +18,12 @@ class Roster extends Component {
       const name = e.target.value;
       const newRoster = this.props.roster.concat(name);
 
-      this.props.handleRosterChange(newRoster);
+      this.props.handleRosterChange(newRoster, this.props.gameIndex);
 
       TeamAPI.addPlayer(
         metadata.teamId,
         metadata.seasonId,
-        metadata.gameId,
+        this.props.gameId,
         name
       );
 
@@ -34,12 +34,12 @@ class Roster extends Component {
   removePlayer(e, name, metadata) {
     const newRoster = this.props.roster.filter(n => n !== name);
 
-    this.props.handleRosterChange(newRoster);
+    this.props.handleRosterChange(newRoster, this.props.gameIndex);
 
     TeamAPI.removePlayer(
         metadata.teamId,
         metadata.seasonId,
-        metadata.gameId,
+        this.props.gameId,
         newRoster
     );
   }

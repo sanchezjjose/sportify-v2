@@ -1,3 +1,7 @@
+.Schedule .content {
+  width: 90%;
+}
+
 .Schedule .game-details-wrapper {
   display: grid;
   width: 100%;
