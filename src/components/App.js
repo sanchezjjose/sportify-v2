@@ -86,7 +86,9 @@ class App extends Component {
             <Route exact path="/" component={Landing}/> 
             <Route exact={true} path='/:team_id' render={() => (
               <div className='container'>
-                <Home schedule={this.state.schedule} nextGameIndex={this.state.nextGameIndex} handleRosterChange={this.handleRosterChange} />
+                {this.state.schedule.length > 0 && 
+                  <Home schedule={this.state.schedule} nextGameIndex={this.state.nextGameIndex} handleRosterChange={this.handleRosterChange} />
+                 }
                 <Footer teamId={this.state.team.id} />
               </div>
             )}/>

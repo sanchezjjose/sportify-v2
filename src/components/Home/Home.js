@@ -14,8 +14,8 @@ class Home extends Component {
     gameIndex: this.props.nextGameIndex
   }
 
-  handleArrowStyles = () => {
-    if (this.props.schedule.length === this.state.gameIndex) {
+  styleArrows = () => {
+    if (this.props.schedule.length-1 === this.state.gameIndex) {
       document.getElementById('next-game-nav').classList.add('md-dark','md-inactive');
       document.getElementById('prev-game-nav').classList.remove('md-dark', 'md-inactive');
 
@@ -41,14 +41,18 @@ class Home extends Component {
     } else if (target === 'prev-game-nav' && schedule[currentGameIndex - 1]) {
       this.setState({ gameIndex: currentGameIndex - 1 });
     }
+  }
 
+  componentDidMount() {
+    this.styleArrows();
+  }
+
+  componentDidUpdate() {
+    this.styleArrows();
   }
 
   render () {
-    this.handleArrowStyles();
-
     const schedule = this.props.schedule;
-    // const gameIndex = this.state.gameIndex != null ? this.state.gameIndex : Util.getNextGameIndex(schedule);
     const currentGameIndex = this.state.gameIndex;
     const game = currentGameIndex >= 0 ? schedule[currentGameIndex] : {};
 
