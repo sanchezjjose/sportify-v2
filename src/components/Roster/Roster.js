@@ -57,7 +57,8 @@ class Roster extends Component {
             <div className='roster-subtitle'>{roster.length} player(s) confirmed</div>
             <div className='rsvp-form'>
               <form>
-                <input onKeyDown={(e) => this.addPlayer(e, metadata)} placeholder='Enter Player Name' type='text' />
+                <input type='text' className='name-field' onKeyDown={(e) => this.addPlayer(e, metadata)} placeholder='Enter Player Name' />
+                <input type='submit' className='submit-button' />
               </form>
             </div>
             <div className='roster-rsvp-in-container'>

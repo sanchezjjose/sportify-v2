@@ -5,7 +5,9 @@
 }
 
 .Home .schedule-nav {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   margin-top: 200px;
+  height: 24px;
 }
 
 .Home .schedule-nav.md-dark.md-inactive {

@@ -52,7 +52,7 @@ span.roster-rsvp-in-action {
   margin-bottom: 20px;
 }
 
-.Roster .rsvp-form input {
+.Roster .rsvp-form .name-field {
   border: 0;
   border-bottom: 1px solid #ddd;
   border-radius: 0;
@@ -72,4 +72,9 @@ span.roster-rsvp-in-action {
 
 .Roster .rsvp-form input:focus::-webkit-input-placeholder {
   color: transparent;
+}
+
+.Roster .submit-button {
+  visibility: hidden;
+  position: absolute;
 }
