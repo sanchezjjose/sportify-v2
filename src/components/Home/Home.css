@@ -1,12 +1,12 @@
 .Home .next-game-details-wrapper {
   display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
   width: 100%;
   justify-items: center;
 }
 
 .Home .schedule-nav {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  margin-top: 200px;
   height: 24px;
 }
 
