@@ -73,7 +73,7 @@ class Roster extends Component {
               <form onSubmit={e => this.addPlayer(e, metadata)}>
                 <input type='text' onChange={this.shouldShowButton} placeholder='Enter Player Name' className='name-field' />
                 {this.state.showAddPlayerBtn && 
-                  <a onClick={this.form.submit} className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></a>
+                  <a className=""><i className="material-icons">add_circle_outline</i></a>
                   // <button className='btn waves-effect waves-light' type='submit' name='action'>(+)
                     // { <i className='add-player-button material-icons'>arrow_back_ios</i> }
                   // </button>
