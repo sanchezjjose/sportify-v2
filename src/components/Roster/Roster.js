@@ -10,20 +10,19 @@ class Roster extends Component {
     super(props);
 
     this.state = {
-      showAddPlayerBtn: false
+      name: ''
     };
 
     this.addPlayer = this.addPlayer.bind(this);
     this.removePlayer = this.removePlayer.bind(this);
-    this.shouldShowButton = this.shouldShowButton.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   addPlayer(e, metadata) {
     e.preventDefault();
 
-    const selector = e.target.querySelector('input');
-    const name = selector.value;
-    const newRoster = this.props.roster.concat(name);
+    const playerName = this.state.name;
+    const newRoster = this.props.roster.concat(playerName);
 
     this.props.handleRosterChange(newRoster, this.props.gameIndex);
 
@@ -31,13 +30,13 @@ class Roster extends Component {
       metadata.teamId,
       metadata.seasonId,
       this.props.gameId,
-      name
+      playerName
     );
 
-    selector.value = '';
+    e.target.querySelector('input').value = '';
 
     this.setState({ 
-      showAddPlayerBtn: false
+      name: ''
     });
   }
 
@@ -54,9 +53,9 @@ class Roster extends Component {
     );
   }
 
-  shouldShowButton(e) {
-    this.setState({ 
-      showAddPlayerBtn: e.target.value.length > 0 
+  handleChange(e) {
+    this.setState({
+      name: e.target.value
     });
   }
 
@@ -71,12 +70,9 @@ class Roster extends Component {
             <div className='roster-subtitle'>{roster.length} player(s) confirmed</div>
             <div className='rsvp-form'>
               <form onSubmit={e => this.addPlayer(e, metadata)}>
-                <input type='text' onChange={this.shouldShowButton} placeholder='Enter Player Name' className='name-field' />
-                {this.state.showAddPlayerBtn && 
-                  <a className=""><i className="material-icons">add_circle_outline</i></a>
-                  // <button className='btn waves-effect waves-light' type='submit' name='action'>(+)
-                    // { <i className='add-player-button material-icons'>arrow_back_ios</i> }
-                  // </button>
+                <input type='text' onChange={this.handleChange} placeholder='Enter Player Name' className='name-field' />
+                {this.state.name.length > 0 && 
+                  <i className="material-icons">add_circle_outline</i>
                 }
               </form>
             </div>
