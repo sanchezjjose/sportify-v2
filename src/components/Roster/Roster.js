@@ -33,7 +33,7 @@ class Roster extends Component {
       playerName
     );
 
-    e.target.querySelector('input').value = '';
+    document.querySelector('.name-field').value = '';
 
     this.setState({ 
       name: ''
@@ -72,7 +72,7 @@ class Roster extends Component {
               <form onSubmit={e => this.addPlayer(e, metadata)}>
                 <input type='text' onChange={this.handleChange} placeholder='Enter Player Name' className='name-field' />
                 {this.state.name.length > 0 && 
-                  <i className="material-icons add-player-button">add_circle_outline</i>
+                  <i onClick={e => this.addPlayer(e, metadata)} className="material-icons add-player-button">add_circle_outline</i>
                 }
               </form>
             </div>
