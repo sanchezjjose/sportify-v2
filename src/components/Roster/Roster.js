@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import './Roster.css';
+import "@material/fab/dist/mdc.fab.min.css";
+
+// import { MDCRipple } from '@material/ripple';
 import * as TeamAPI from '../../api/TeamAPI';
 import { TeamContext } from '../TeamContext';
 
@@ -17,6 +20,10 @@ class Roster extends Component {
     this.removePlayer = this.removePlayer.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+  // componentDidMount() {
+  //   const fabRipple = new MDCRipple(document.querySelector('.mdc-fab'));
+  // }
 
   addPlayer(e, metadata) {
     e.preventDefault();
@@ -72,7 +79,9 @@ class Roster extends Component {
               <form onSubmit={e => this.addPlayer(e, metadata)}>
                 <input type='text' onChange={this.handleChange} placeholder='Enter Player Name' className='name-field' />
                 {this.state.name.length > 0 && 
-                  <i onClick={e => this.addPlayer(e, metadata)} className="material-icons add-player-button">add_circle_outline</i>
+                  <button className="mdc-fab mdc-fab--mini add-player-button" aria-label="Favorite">
+                    <span className="mdc-fab__icon material-icons">add</span>
+                  </button>
                 }
               </form>
             </div>

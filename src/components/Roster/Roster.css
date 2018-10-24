@@ -74,15 +74,9 @@ span.roster-rsvp-in-action {
   color: transparent;
 }
 
-.Roster .rsvp-form .submit-button {
-  visibility: hidden;
-  position: absolute;
-}
-
 .Home .rsvp-form .add-player-button {
   position: absolute;
-  margin-top: 30px;
+  margin-top: 22px;
   right: 70px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  height: 24px;
 }
