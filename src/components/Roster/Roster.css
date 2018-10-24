@@ -75,6 +75,7 @@ span.roster-rsvp-in-action {
 }
 
 .Home .rsvp-form .add-player-button {
+  background-color: #000000;
   position: absolute;
   margin-top: 22px;
   right: 70px;
