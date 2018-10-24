@@ -89,7 +89,8 @@ class Roster extends Component {
               {roster.map (name => {
                 return (
                   <div key={name} className='roster-rsvp-in'>
-                    <span onClick={(e) => this.removePlayer(e, name, metadata)} className='roster-rsvp-in-action'>[x]</span>
+                    {/* <span onClick={(e) => this.removePlayer(e, name, metadata)} className='roster-rsvp-in-action'>[x]</span> */}
+                    <button onClick={(e) => this.removePlayer(e, name, metadata)} className="mdc-icon-button material-icons roster-rsvp-out">remove_circle</button>
                     <div className='roster-rsvp-in-name'>{name}</div>
                   </div>
                 );

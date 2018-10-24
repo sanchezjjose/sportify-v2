@@ -27,21 +27,20 @@
 
 .Roster .roster-rsvp-in {
   display: grid;
+  align-items: center;
   grid-template-columns: 20px 1fr;
-  grid-gap: 5px;
+  grid-gap: 10px;
   color: #4A4A4A;
   font-size: 16px;
   font-weight: 300;
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
-span.roster-rsvp-in-action {
-  align-content: center;
-  display: grid;
-  font-size: 12px;
+.Roster button.roster-rsvp-out {
+  padding: 0;
 }
 
-.roster-rsvp-in-name {
+.Roster .roster-rsvp-in-name {
   text-align: left;
   overflow: scroll;
   /* text-overflow: ellipsis; */
@@ -74,10 +73,14 @@ span.roster-rsvp-in-action {
   color: transparent;
 }
 
-.Home .rsvp-form .add-player-button {
+.Roster .rsvp-form .add-player-button {
   background-color: #000000;
   position: absolute;
-  margin-top: 22px;
+  margin-top: 12px;
   right: 70px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.Roster .rsvp-form input:focus + .add-player-button {
+  margin-top: 22px;
 }
