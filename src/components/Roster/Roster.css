@@ -29,15 +29,17 @@
   display: grid;
   align-items: center;
   grid-template-columns: 20px 1fr;
-  grid-gap: 10px;
+  grid-gap: 12px;
   color: #4A4A4A;
   font-size: 16px;
   font-weight: 300;
-  margin-top: 7px;
+  margin-top: 10px;
 }
 
 .Roster button.roster-rsvp-out {
-  padding: 0;
+  background: #000000;
+  width: 24px;
+  height: 24px;
 }
 
 .Roster .roster-rsvp-in-name {

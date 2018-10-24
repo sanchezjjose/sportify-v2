@@ -79,7 +79,7 @@ class Roster extends Component {
               <form onSubmit={e => this.addPlayer(e, metadata)}>
                 <input type='text' onChange={this.handleChange} placeholder='Enter Player Name' className='name-field' />
                 {this.state.name.length > 0 && 
-                  <button className="mdc-fab mdc-fab--mini add-player-button" aria-label="Favorite">
+                  <button className="mdc-fab mdc-fab--mini add-player-button" aria-label="Add">
                     <span className="mdc-fab__icon material-icons">add</span>
                   </button>
                 }
@@ -89,8 +89,9 @@ class Roster extends Component {
               {roster.map (name => {
                 return (
                   <div key={name} className='roster-rsvp-in'>
-                    {/* <span onClick={(e) => this.removePlayer(e, name, metadata)} className='roster-rsvp-in-action'>[x]</span> */}
-                    <button onClick={(e) => this.removePlayer(e, name, metadata)} className="mdc-icon-button material-icons roster-rsvp-out">remove_circle</button>
+                    <button onClick={(e) => this.removePlayer(e, name, metadata)} className="mdc-fab mdc-fab--mini roster-rsvp-out" aria-label="Remove">
+                      <span className="mdc-fab__icon material-icons">remove</span>
+                    </button>
                     <div className='roster-rsvp-in-name'>{name}</div>
                   </div>
                 );
