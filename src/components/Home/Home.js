@@ -53,17 +53,17 @@ class Home extends Component {
   }
 
   handleTouchStart = (e) => {
-    this.touchStartX = e.touches[0].clientX;
-    this.touchStartY = e.touches[0].clientY;
+    this.touchStartX = e.changedTouches[0].clientX;
+    this.touchStartY = e.changedTouches[0].clientY;
   }
 
-  handleTouchMove = (e) => {
+  handleTouchEnd = (e) => {
     if (this.touchStartX === null || this.touchStartY === null) {
       return;
     }
 
-    const currentX = e.touches[0].clientX;
-    const currentY = e.touches[0].clientY;
+    const currentX = e.changedTouches[0].clientX;
+    const currentY = e.changedTouches[0].clientY;
 
     const diffX = this.touchStartX - currentX;
     const diffY = this.touchStartY - currentY;
@@ -78,6 +78,10 @@ class Home extends Component {
     }
   }
 
+  handleTouchMove = (e) => {
+    // Code here to handle transition between cards
+  }
+
   render () {
     const schedule = this.props.schedule;
     const currentGameIndex = this.state.gameIndex;
@@ -87,7 +91,7 @@ class Home extends Component {
       <div className='Home'>
         <Navigation />
         <Header title={game.type} />
-        <div className='content-wrapper' onTouchStart={this.handleTouchStart} onTouchMove={this.handleTouchMove}>
+        <div className='content-wrapper' onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} >
           <div className='content'>
             <div className='next-game-details-wrapper'>
               <i onClick={e => this.handleScheduleChange(e, true, false)} id='prev-game-nav' className='schedule-nav material-icons'>arrow_back_ios</i>
