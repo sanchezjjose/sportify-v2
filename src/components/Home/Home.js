@@ -14,6 +14,9 @@ class Home extends Component {
     gameIndex: this.props.nextGameIndex
   }
 
+  touchStartX = 0;
+  touchEndX = 0;
+
   styleArrows = () => {
     if (this.props.schedule.length-1 === this.state.gameIndex) {
       document.getElementById('next-game-nav').classList.add('md-dark','md-inactive');
@@ -29,16 +32,14 @@ class Home extends Component {
     }
   }
 
-  handleScheduleChange = (e, currentGameIndex) => {
-    e.preventDefault();
-
-    const target = e.target.id;
+  handleScheduleChange = (e, prevGame, nextGame) => {
     const schedule = this.props.schedule;
+    const currentGameIndex = this.state.gameIndex;
 
-    if (target === 'next-game-nav' && schedule[currentGameIndex + 1]) {
+    if (nextGame && schedule[currentGameIndex + 1]) {
         this.setState({ gameIndex: currentGameIndex + 1 });
 
-    } else if (target === 'prev-game-nav' && schedule[currentGameIndex - 1]) {
+    } else if (prevGame && schedule[currentGameIndex - 1]) {
       this.setState({ gameIndex: currentGameIndex - 1 });
     }
   }
@@ -51,6 +52,32 @@ class Home extends Component {
     this.styleArrows();
   }
 
+  handleTouchStart = (e) => {
+    this.touchStartX = e.touches[0].clientX;
+    this.touchStartY = e.touches[0].clientY;
+  }
+
+  handleTouchMove = (e) => {
+    if (this.touchStartX === null || this.touchStartY === null) {
+      return;
+    }
+
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+
+    const diffX = this.touchStartX - currentX;
+    const diffY = this.touchStartY - currentY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) {
+        this.handleScheduleChange(e, false, true);
+
+      } else {
+        this.handleScheduleChange(e, true, false);
+      }
+    }
+  }
+
   render () {
     const schedule = this.props.schedule;
     const currentGameIndex = this.state.gameIndex;
@@ -60,12 +87,12 @@ class Home extends Component {
       <div className='Home'>
         <Navigation />
         <Header title={game.type} />
-        <div className='content-wrapper'>
+        <div className='content-wrapper' onTouchStart={this.handleTouchStart} onTouchMove={this.handleTouchMove}>
           <div className='content'>
             <div className='next-game-details-wrapper'>
-              <i onClick={e => this.handleScheduleChange(e, currentGameIndex)} id='prev-game-nav' className='schedule-nav material-icons'>arrow_back_ios</i>
+              <i onClick={e => this.handleScheduleChange(e, true, false)} id='prev-game-nav' className='schedule-nav material-icons'>arrow_back_ios</i>
               <Details game={game} />
-              <i onClick={e => this.handleScheduleChange(e, currentGameIndex)} id='next-game-nav' className='schedule-nav material-icons'>arrow_forward_ios</i>
+              <i onClick={e => this.handleScheduleChange(e, false, true)} id='next-game-nav' className='schedule-nav material-icons'>arrow_forward_ios</i>
             </div>
             <div className='line-divider'></div>
             <Roster roster={game.roster} gameId={game.id} gameIndex={currentGameIndex} handleRosterChange={this.props.handleRosterChange} />
