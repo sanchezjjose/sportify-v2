@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './Roster.css';
 import "@material/fab/dist/mdc.fab.min.css";
+import "@material/icon-button/dist/mdc.icon-button.min.css";
 
 // import { MDCRipple } from '@material/ripple';
 import * as TeamAPI from '../../api/TeamAPI';
@@ -89,9 +90,7 @@ class Roster extends Component {
               {roster.map (name => {
                 return (
                   <div key={name} className='roster-rsvp-in'>
-                    <button onClick={(e) => this.removePlayer(e, name, metadata)} className="mdc-fab mdc-fab--mini roster-rsvp-out" aria-label="Remove">
-                      <span className="mdc-fab__icon material-icons">remove</span>
-                    </button>
+                    <button onClick={(e) => this.removePlayer(e, name, metadata)} className="mdc-icon-button material-icons roster-rsvp-out" aria-label="Remove">remove_circle_outline</button>
                     <div className='roster-rsvp-in-name'>{name}</div>
                   </div>
                 );
