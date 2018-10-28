@@ -1,19 +1,15 @@
 .App {
-  /* display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 75px auto; */
   font-family: 'Open Sans', sans-serif;
 }
 
-.App .content-wrapper {
+.App .content {
   display: grid;
-  text-align: center;
   justify-items: center;
+  text-align: center;
   margin-top: 26px;
   margin-bottom: 26px;
-
-  /* Makes container scrollable */
   padding-bottom: 80px;
+  width: 100%;
 }
 
 .App .line-divider {
@@ -21,10 +17,4 @@
   width: 90%;
   background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
   margin: 20px 0;
-}
-
-.App .content {
-  display: grid;
-  justify-items: center;
-  width: 100%;
 }

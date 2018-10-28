@@ -1,23 +1,12 @@
 .Home .next-game-details-wrapper {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  width: 100%;
-  justify-items: center;
 }
 
 .Home .schedule-nav {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  height: 24px;
 }
 
 .Home .schedule-nav.md-dark.md-inactive {
   color: rgba(0, 0, 0, 0.26);
-}
-
-.Home #prev-game-nav {
-  padding-left: 15px;
-}
-
-.Home #next-game-nav {
-  padding-right: 10px;
 }

@@ -1,17 +1,13 @@
-.Schedule .content {
-  width: 90%;
+.Schedule .game-details-wrapper {
+  width: 80%;
 }
 
-.Schedule .game-details-wrapper {
-  display: grid;
+.Schedule .game-details-wrapper .line-divider {
   width: 100%;
-  justify-items: center;
 }
 
 .Schedule .game-details {
-  padding-left: 30px;
   text-align: left;
-  justify-self: left;
   font-size: 16px;
 }
 

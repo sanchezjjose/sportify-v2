@@ -7,18 +7,18 @@ import scheduleNavIcon from './schedule-nav-icon.svg';
 
 const Footer = ({ teamId }) => {
 	return (
-    <div className='footer'>
+    <div className='Footer'>
       <Link className='link-home' to={`/${teamId}`}>
-        <button className='footer-home'>
+        <div className='footer-button'>
             <img src={homeNavIcon} className="tab-icon" alt="home" />
             <span className='footer-text'> home </span>
-        </button>
+        </div>
       </Link>
       <Link to={`/${teamId}/schedule`}>
-        <button className='footer-schedule'>
+        <div className='footer-button'>
             <img src={scheduleNavIcon} className="tab-icon" alt="schedule" />
             <span className='footer-text'> schedule </span>
-        </button>
+        </div>
       </Link>
     </div>
 	);

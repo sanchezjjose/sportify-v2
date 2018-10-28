@@ -1,15 +1,13 @@
 .App-header {
   display: grid;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 100px;
   align-items: center;
   justify-content: center;
   background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
-  /* box-shadow: 0 3px 20px 0 rgba(0,0,0,0.5); */
 }
 
 .App-header .header-title {
   color: #fff;
   font-size: 32px;
-  font-family: 'Open Sans';
   font-weight: 300;
 }
