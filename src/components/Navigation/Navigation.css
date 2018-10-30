@@ -3,6 +3,7 @@
   grid-template-rows: 75px;
   justify-items: center;
   align-items: center;
+  background: #fff;
 }
 
 .App-navigation .App-logo {
