@@ -101,7 +101,7 @@ class Home extends Component {
             <div className='line-divider'></div>
             <Roster roster={game.roster} gameId={game.id} gameIndex={currentGameIndex} handleRosterChange={this.props.handleRosterChange} />
           </div>
-          <div className='schedule-nav-indicators'>
+          <div className='schedule-nav-indicators' style={{ gridTemplateColumns: `repeat(${schedule.length}, 20px)`}} >
             {schedule.map (game => {
               return <div key={game.id} className='circle'>.</div>
             })}

@@ -38,18 +38,16 @@
 
 .Home .schedule-nav-indicators {
   display: grid;
+  justify-content: center;
   align-items: center;
   justify-items: center;
   position: fixed;
   bottom: 0;
   margin-bottom: 80px;
   width: 100%;
-
-  grid-template-columns: 10px 10px 10px 10px 10px 10px;
 }
 
 .Home .schedule-nav-indicators .circle {
-  background: #fff;
   width: 50%;
   text-align: center;
 }
