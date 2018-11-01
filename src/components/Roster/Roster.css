@@ -1,5 +1,8 @@
 .Roster {
   width: 100%;
+  height: 50%;
+
+  height: auto;
 }
 
 .Roster .roster-title {
@@ -21,7 +24,7 @@
   justify-content: center;
   overflow: scroll;
   width: 100%;
-  height: 130px;
+  height: 70px;
 }
 
 .Roster .roster-rsvp-in {

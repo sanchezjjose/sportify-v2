@@ -2,18 +2,25 @@
   display: grid;
 }
 
+.Home .content-wrapper {
+  display: grid;
+  justify-items: center;
+
+  /* Temporary: extra 75px at the end is for iOS browser address bar and footer */
+  height: calc(100vh - 75px - 100px - 70px - 75px); 
+}
+
 .Home .content {
-  justify-self: center;
   background: #fff;
   border-radius: 5px;
   margin-top: 10px;
   padding-top: 15px;
-  width: 90%;
-  height: 49vh;
-
   overflow: hidden;
-  padding-bottom: 0px;
-  height: 65vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 90%;
+  min-height: 325px;
+  height: 55%;
 }
 
 .Home .next-game-details-wrapper {
@@ -27,4 +34,22 @@
 
 .Home .schedule-nav.md-dark.md-inactive {
   color: rgba(0, 0, 0, 0.26);
+}
+
+.Home .schedule-nav-indicators {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 80px;
+  width: 100%;
+
+  grid-template-columns: 10px 10px 10px 10px 10px 10px;
+}
+
+.Home .schedule-nav-indicators .circle {
+  background: #fff;
+  width: 50%;
+  text-align: center;
 }

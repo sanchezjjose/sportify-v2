@@ -91,14 +91,21 @@ class Home extends Component {
       <div className='Home'>
         <Navigation />
         <Header title={game.type} />
-        <div className='content' onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} >
-          <div className='next-game-details-wrapper'>
-            <i onClick={e => this.handleScheduleChange(e, true, false)} id='prev-game-nav' className='schedule-nav material-icons'>arrow_back_ios</i>
-            <Details game={game} />
-            <i onClick={e => this.handleScheduleChange(e, false, true)} id='next-game-nav' className='schedule-nav material-icons'>arrow_forward_ios</i>
+        <div className='content-wrapper'>
+          <div className='content' onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} >
+            <div className='next-game-details-wrapper'>
+              <i onClick={e => this.handleScheduleChange(e, true, false)} id='prev-game-nav' className='schedule-nav material-icons'>arrow_back_ios</i>
+              <Details game={game} />
+              <i onClick={e => this.handleScheduleChange(e, false, true)} id='next-game-nav' className='schedule-nav material-icons'>arrow_forward_ios</i>
+            </div>
+            <div className='line-divider'></div>
+            <Roster roster={game.roster} gameId={game.id} gameIndex={currentGameIndex} handleRosterChange={this.props.handleRosterChange} />
           </div>
-          <div className='line-divider'></div>
-          <Roster roster={game.roster} gameId={game.id} gameIndex={currentGameIndex} handleRosterChange={this.props.handleRosterChange} />
+          <div className='schedule-nav-indicators'>
+            {schedule.map (game => {
+              return <div key={game.id} className='circle'>.</div>
+            })}
+          </div>
         </div>
       </div>
     );
