@@ -98,7 +98,7 @@ class Home extends Component {
               <Details game={game} />
               <i onClick={e => this.handleScheduleChange(e, false, true)} id='next-game-nav' className='schedule-nav material-icons'>arrow_forward_ios</i>
             </div>
-            <div className='line-divider'></div>
+            {/* <div className='line-divider'></div> */}
             <Roster roster={game.roster} gameId={game.id} gameIndex={currentGameIndex} handleRosterChange={this.props.handleRosterChange} />
           </div>
           <div className='schedule-nav-indicators' style={{ gridTemplateColumns: `repeat(${schedule.length}, 20px)`}} >

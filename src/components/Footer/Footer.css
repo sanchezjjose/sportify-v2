@@ -1,6 +1,6 @@
 .Footer {
   display: grid;
-  grid-template-rows: 70px;
+  grid-template-rows: 65px;
   grid-template-columns: 1fr 1fr;
   background-color: #fff;
   width: 100%;

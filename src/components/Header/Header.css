@@ -1,6 +1,6 @@
 .App-header {
   display: grid;
-  grid-template-rows: 100px;
+  grid-template-rows: 75px;
   align-items: center;
   justify-content: center;
   background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
@@ -8,6 +8,6 @@
 
 .App-header .header-title {
   color: #fff;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 300;
 }
