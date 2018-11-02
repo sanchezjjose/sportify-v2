@@ -39,6 +39,7 @@
 
 .Home .schedule-nav-indicators {
   display: grid;
+  grid-gap: 10px;
   justify-content: center;
   align-items: center;
   justify-items: center;
@@ -49,6 +50,12 @@
 }
 
 .Home .schedule-nav-indicators .circle {
-  width: 50%;
-  text-align: center;
+  height: 15px;
+  width: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.Home .schedule-nav-indicators .circle.active {
+  background: rgba(0, 0, 0, 0.8);
 }

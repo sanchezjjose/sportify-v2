@@ -102,8 +102,8 @@ class Home extends Component {
             <Roster roster={game.roster} gameId={game.id} gameIndex={currentGameIndex} handleRosterChange={this.props.handleRosterChange} />
           </div>
           <div className='schedule-nav-indicators' style={{ gridTemplateColumns: `repeat(${schedule.length}, 20px)`}} >
-            {schedule.map (game => {
-              return <div key={game.id} className='circle'>.</div>
+            {schedule.map ((game, index) => {
+              return <div key={game.id} className={`circle ${index === currentGameIndex ? 'active' : ''}`}></div>
             })}
           </div>
         </div>
