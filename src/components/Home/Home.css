@@ -11,6 +11,8 @@
 }
 
 .Home .content {
+  display: grid;
+  grid-template-rows: 90px 1fr;
   background: #fff;
   border-radius: 5px;
   margin-top: 10px;
@@ -26,7 +28,6 @@
 .Home .next-game-details-wrapper {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 70px;
 }
 
 .Home .schedule-nav {

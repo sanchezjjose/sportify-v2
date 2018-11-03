@@ -96,6 +96,7 @@ class Roster extends Component {
                 );
               })}
             </div>
+            <div className='fade'></div>
           </div>
         )}
       </TeamContext.Consumer>
