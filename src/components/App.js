@@ -55,6 +55,14 @@ class App extends Component {
           metadata: metadata
         });
 
+        var w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        console.log(x + ' × ' + y);
+
       }).catch(err => {
         console.error('Error getting next game: ', err);
       });
@@ -83,7 +91,7 @@ class App extends Component {
                 {this.state.schedule.length > 0 && 
                   <Home schedule={this.state.schedule} nextGameIndex={this.state.nextGameIndex} handleRosterChange={this.handleRosterChange} />
                  }
-                <Footer teamId={this.state.team.id} />
+                {/* <Footer teamId={this.state.team.id} /> */}
               </div>
             )}/>
             <Route exact={true} path='/:team_id/schedule' render={() => (

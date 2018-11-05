@@ -1,13 +1,14 @@
 .Home {
-  display: grid;
+  /* display: grid; */
 }
 
 .Home .content-wrapper {
   display: grid;
   justify-items: center;
 
-  /* Temporary: extra 75px at the end is for iOS browser address bar and footer */
-  height: calc(100vh - 75px - 100px - 70px - 75px); 
+  /* Nav Height - Header Height - Nav Indicator offset - Mobile browser address bar and footer */
+  height: calc(100vh - 75px - 75px - 50px);
+  /* height: 58vh; */
 }
 
 .Home .content {
@@ -21,8 +22,8 @@
   margin-bottom: 0;
   padding-bottom: 0;
   width: 90%;
-  min-height: 350px;
-  height: 55%;
+  /* min-height: 350px;
+  height: 55%; */
 }
 
 .Home .next-game-details-wrapper {
@@ -47,7 +48,10 @@
   justify-items: center;
   position: fixed;
   bottom: 0;
-  margin-bottom: 75px;
+  /* margin-bottom: 75px; */
+
+  margin-bottom: 20px;
+
   width: 100%;
 }
 
@@ -60,4 +64,25 @@
 
 .Home .schedule-nav-indicators .circle.active {
   background: rgba(0, 0, 0, 0.8);
+}
+
+/* Phone 6 > */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .Home .content-wrapper {
+      height: calc(100vh - 75px - 75px - 50px - 70px);
+    }
+}
+
+/* iPhone X */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+    .Home .content-wrapper {
+      height: calc(100vh - 75px - 75px - 50px - 110px);
+    }
 }
