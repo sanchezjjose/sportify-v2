@@ -3,7 +3,8 @@
   grid-template-rows: 75px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%);
+  /* background: linear-gradient(165.61deg, #44E4E2 0%, #8225BA 100%); */
+  background: red;
 }
 
 .App-header .header-title {
