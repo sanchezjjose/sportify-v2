@@ -1,11 +1,8 @@
 .Home .content-wrapper {
   display: grid;
   justify-items: center;
-
   /* Nav Height - Header Height - Nav Indicator offset */
   height: calc(100vh - 75px - 75px - 50px);
-
-  height: 70vh;
 }
 
 .Home .content {
@@ -59,29 +56,25 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-@media only screen {
-  .Home .content-wrapper {
-    height: calc(100vh - 75px - 75px - 50px - 110px);
-  }
-}
-
 /* iPhone X */
-/* @media only screen 
+@media only screen 
   and (min-device-width: 375px) 
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) {
     .Home .content-wrapper {
       height: calc(100vh - 75px - 75px - 50px - 110px);
+      height: 430px;
     }
-} */
+}
 
 /* Phone 6,7,8 Plus */
-/* @media only screen 
+@media only screen 
 and (min-device-width : 414px) 
 and (max-device-width : 736px) 
 and (orientation : portrait) {
   .Home .content-wrapper {
     height: calc(100vh - 75px - 75px - 50px - 70px);
+    height: 430px;
   }
-} */
+}

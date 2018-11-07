@@ -1,6 +1,6 @@
 .Roster {
   /* display: grid; */
-  overflow: scroll;
+  /* overflow: scroll; */
   position: relative;
   margin-top: 10px;
   width: 100%;
