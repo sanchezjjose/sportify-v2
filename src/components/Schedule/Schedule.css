@@ -1,5 +1,11 @@
-.Schedule .game-details-wrapper {
-  width: 80%;
+.Schedule .content {
+  background: #fff;
+  margin: 0;
+}
+
+.Schedule .content-wrapper {
+  width: 75%;
+  padding: 20px;
 }
 
 .Schedule .game-details-wrapper .line-divider {
