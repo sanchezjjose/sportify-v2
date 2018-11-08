@@ -83,7 +83,7 @@ class App extends Component {
                 {this.state.schedule.length > 0 && 
                   <Home schedule={this.state.schedule} nextGameIndex={this.state.nextGameIndex} handleRosterChange={this.handleRosterChange} />
                  }
-                {/* <Footer teamId={this.state.team.id} /> */}
+                <Footer teamId={this.state.team.id} />
               </div>
             )}/>
             <Route exact={true} path='/:team_id/schedule' render={() => (
