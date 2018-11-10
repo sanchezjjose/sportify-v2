@@ -53,20 +53,12 @@ class Roster extends Component {
 
     this.props.handleRosterChange(newRoster, this.props.gameIndex);
 
-        var w = window,
-        d = document,
-        ee = d.documentElement,
-        g = d.getElementsByTagName('body')[0],
-        x = w.innerWidth || ee.clientWidth || g.clientWidth,
-        y = w.innerHeight|| ee.clientHeight|| g.clientHeight;
-        alert(x + ' × ' + y);
-
-    // TeamAPI.removePlayer(
-    //     metadata.teamId,
-    //     metadata.seasonId,
-    //     this.props.gameId,
-    //     newRoster
-    // );
+    TeamAPI.removePlayer(
+        metadata.teamId,
+        metadata.seasonId,
+        this.props.gameId,
+        newRoster
+    );
   }
 
   handleChange(e) {
