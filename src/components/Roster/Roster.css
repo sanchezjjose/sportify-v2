@@ -1,5 +1,6 @@
 .Roster {
   display: grid;
+  position: relative;
   height: 280px;
   grid-template-rows: 30px 30px 80px 1fr;
   margin-top: 10px;
