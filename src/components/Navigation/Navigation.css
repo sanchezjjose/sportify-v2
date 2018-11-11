@@ -1,6 +1,6 @@
 .App-navigation {
   display: grid;
-  grid-template-rows: 75px;
+  min-height: 75px;
   justify-items: center;
   align-items: center;
   background: #fff;

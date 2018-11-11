@@ -1,8 +1,8 @@
 .Roster {
   display: grid;
   position: relative;
-  height: 280px;
   grid-template-rows: 30px 30px 80px 1fr;
+  align-items: center;
   margin-top: 10px;
   width: 100%;
 }
@@ -15,12 +15,10 @@
   width: 100%;
   height: 60px;
   bottom: 0;
-  left: 0;
 }
 
 .Roster .roster-title {
   font-size: 26px;
-  line-height: 27px;
 }
 
 .Roster .roster-subtitle {
@@ -29,7 +27,6 @@
   font-style: italic;
   font-weight: 300;
   line-height: 15px;
-  margin: 5px 0;
 }
 
 .Roster .roster-rsvp-in-container {
@@ -39,7 +36,9 @@
   justify-content: center;
   overflow-y: scroll;
   width: 100%;
-  padding-bottom: 30px;
+  height: 40vh;
+  min-height: 200px;
+  /* max-height: 280px; */
 }
 
 .Roster .roster-rsvp-in {
@@ -59,7 +58,6 @@
 }
 
 .Roster .rsvp-form {
-  margin-bottom: 10px;
   position: relative;
 }
 
@@ -104,9 +102,9 @@
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) {
-    .Roster {
+    /* .Roster {
       height: 250px;
-    }
+    } */
 }
 
 /* Phone 6,7,8 Plus */
@@ -114,7 +112,7 @@
 and (min-device-width : 414px) 
 and (max-device-width : 736px) 
 and (orientation : portrait) {
-  .Roster  {
+  /* .Roster  {
     height: 240px;
-  }
+  } */
 }
