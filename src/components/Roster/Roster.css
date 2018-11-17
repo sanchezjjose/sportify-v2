@@ -29,6 +29,7 @@
 }
 
 .Roster .roster-rsvp-in-container {
+  box-sizing: 'border-box';
   display: grid;
   /* 48px to match the size of remove button */
   grid-auto-rows: 48px;
@@ -37,6 +38,7 @@
   width: 100%;
   min-height: 100px;
   max-height: 280px;
+  padding-bottom: 30px;
 }
 
 .Roster .roster-rsvp-in {
